@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Ayet Kilidi - Bize Ulaşın. Sorularınız ve geri bildirimleriniz için buradayız."/>
+<title>Bize Ulaşın | Ayet Kilidi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#f6be39","primary-container":"#d4a017","on-primary":"#402d00","background":"#0A1A14","on-surface":"#e3e3de","on-surface-variant":"#d3c5ae","outline-variant":"#4f4634"},spacing:{"container-max":"1200px","stack-md":"16px","gutter":"24px","stack-lg":"32px","margin-x":"clamp(1rem, 5vw, 4rem)","stack-sm":"8px","section-gap":"clamp(4rem, 10vw, 8rem)"},fontFamily:{"display-lg":["Playfair Display"],"headline-md":["Playfair Display"],"headline-sm":["Playfair Display"],"body-md":["Manrope"],"body-lg":["Manrope"],"label-caps":["Manrope"]},fontSize:{"label-caps":["12px",{"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["32px",{"lineHeight":"40px","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"40px","fontWeight":"600"}],"headline-sm":["24px",{"lineHeight":"32px","fontWeight":"600"}]}}}}
+</script>
+<style>
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{background-color:#0A1A14;color:#e3e3de;overflow-x:hidden;font-family:'Manrope',sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
+.glass-surface{background:rgba(20,43,34,0.5);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,160,23,0.15)}
+.primary-btn-glow{box-shadow:0 8px 24px rgba(212,160,23,0.2);transition:all .3s ease}
+.primary-btn-glow:hover{box-shadow:0 12px 32px rgba(212,160,23,0.4);transform:translateY(-2px)}
+.particle{position:absolute;background:rgba(246,190,57,0.2);border-radius:50%;pointer-events:none;animation:float 20s infinite linear}
+@keyframes float{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) rotate(360deg);opacity:0}}
+nav.scrolled{background:rgba(10,26,20,0.95)!important;border-bottom-color:rgba(212,160,23,0.2)!important}
+#mobile-menu{display:none;background:rgba(10,26,20,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,160,23,0.1)}
+#mobile-menu.open{display:block}
+
+/* INPUT FIELD STYLES & AUTOFILL OVERRIDE TO PREVENT WHITE BACKGROUND */
+.input-field{
+  background-color: rgba(10, 26, 20, 0.7) !important;
+  border: 1px solid rgba(212, 160, 23, 0.25) !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+  color: #e3e3de !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 15px !important;
+  width: 100% !important;
+  outline: none !important;
+  transition: all .3s ease !important;
+}
+.input-field::placeholder{
+  color: rgba(211,197,174,0.4) !important;
+}
+.input-field:focus{
+  border-color: #f6be39 !important;
+  box-shadow: 0 0 15px rgba(246,190,57,0.25) !important;
+  background-color: rgba(15, 38, 29, 0.85) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #e3e3de !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0a1a14 inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+select option {
+  background-color: #0a1a14 !important;
+  color: #e3e3de !important;
+}
+
+.form-label{font-size:12px;letter-spacing:0.1em;font-weight:700;text-transform:uppercase;color:rgba(211,197,174,0.7);font-family:'Manrope',sans-serif;margin-bottom:8px;display:block}
+.cta-btn{background:linear-gradient(135deg,#f6be39,#d4a017);color:#0a1a14;transition:all .3s ease;overflow:hidden;position:relative}
+.cta-btn:hover{box-shadow:0 12px 32px rgba(212,160,23,0.4);transform:translateY(-2px)}
+.cta-btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateY(100%);transition:transform .3s ease}
+.cta-btn:hover::after{transform:translateY(0)}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#f6be39,#d4a017);z-index:9999;width:0%;transition:width .1s linear}
+footer a{transition:color .2s ease}
+.toast{opacity:0;transform:translate(-50%,20px);pointer-events:none;transition:all .4s ease}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+</style>
+</head>
+<body class="font-body-md text-body-md">
+<div id="scroll-progress"></div>
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0" id="particle-container"></div>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5" style="background:transparent;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)">
+  <div class="flex justify-between items-center px-margin-x py-stack-md max-w-container-max mx-auto">
+    <a href="index.html" style="font-family:'Playfair Display',serif;font-weight:700;font-size:24px;color:#f6be39;text-decoration:none">Ayet Kilidi</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md transition-colors duration-300" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
+      <a class="font-body-md" href="iletisim.html" style="color:#f6be39;font-weight:700;border-bottom:2px solid #f6be39;padding-bottom:2px">İletişim</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button onclick="showToast('Uygulama')" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif">İNDİR</button>
+      <button id="mobile-toggle" class="md:hidden p-1" style="color:#e3e3de">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden px-6 py-4 flex flex-col gap-4">
+    <a class="py-2 font-body-md" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
+    <a class="py-2 font-body-md" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+    <a class="py-2 font-body-md" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
+    <a class="py-2 font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
+    <a class="font-bold py-2 font-body-md" href="iletisim.html" style="color:#f6be39">İletişim</a>
+  </div>
+</nav>
+
+<main class="relative z-10 pt-40 pb-section-gap px-margin-x max-w-container-max mx-auto">
+  <div class="grid lg:grid-cols-12 gap-gutter items-start">
+    <div class="lg:col-span-5 flex flex-col gap-stack-lg reveal">
+      <header>
+        <span class="font-label-caps text-label-caps tracking-[0.2em] mb-4 block" style="color:#f6be39;text-transform:uppercase">Mukaddesat ile Bağ Kurun</span>
+        <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:#e3e3de;line-height:1.15;margin-bottom:16px">Bize Ulaşın</h1>
+        <p class="font-body-lg text-body-lg max-w-md" style="color:#d3c5ae">
+          Sorularınız, geri bildirimleriniz veya abonelik/teknik destek ihtiyaçlarınız için yanınızdayız. Bizimle her an iletişime geçebilirsiniz.
+        </p>
+      </header>
+
+      <div class="flex flex-col gap-stack-md mt-stack-lg">
+        <div class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-full glass-surface flex items-center justify-center border transition-colors duration-500 group-hover:border-primary" style="color:#f6be39;border-color:rgba(212,160,23,0.2)">
+            <span class="material-symbols-outlined">mail</span>
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.6);text-transform:uppercase">E-posta</p>
+            <p class="font-body-md font-bold" style="color:#e3e3de">destek@ayetkilidi.com</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full glass-surface flex items-center justify-center border transition-colors duration-500" style="color:#f6be39;border-color:rgba(212,160,23,0.2)">
+            <span class="material-symbols-outlined">support_agent</span>
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.6);text-transform:uppercase">Destek Saatleri</p>
+            <p class="font-body-md font-bold" style="color:#e3e3de">Pzt-Cum: 09:00 - 18:00</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 mt-4 pt-4 border-t border-white/10">
+          <p class="font-label-caps text-label-caps uppercase tracking-wider" style="color:#f6be39">Sosyal Medyada Bizi Takip Edin</p>
+          <div class="flex flex-col gap-3">
+            <a class="flex items-center gap-3.5 glass-surface px-4 py-3 rounded-xl hover:border-primary/50 transition-all group" href="https://instagram.com/ayetkilidi" target="_blank" style="color:#e3e3de">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style="background:rgba(246,190,57,0.15);color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+              <div>
+                <div style="font-size:11px;color:rgba(211,197,174,0.6);text-transform:uppercase;font-weight:600">Instagram</div>
+                <div style="font-weight:700;font-size:15px;color:#f6be39">@ayetkilidi</div>
+              </div>
+            </a>
+            <a class="flex items-center gap-3.5 glass-surface px-4 py-3 rounded-xl hover:border-primary/50 transition-all group" href="https://tiktok.com/@ayetkilidi" target="_blank" style="color:#e3e3de">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style="background:rgba(246,190,57,0.15);color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.31 1.56-1.3 2.57.01 1.05.58 2.05 1.48 2.58.97.58 2.22.6 3.22.11.85-.41 1.47-1.22 1.64-2.14.05-1.25.04-2.5.04-3.75V.02z"/></svg></div>
+              <div>
+                <div style="font-size:11px;color:rgba(211,197,174,0.6);text-transform:uppercase;font-weight:600">TikTok</div>
+                <div style="font-weight:700;font-size:15px;color:#f6be39">@ayetkilidi</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#e3e3de;margin-bottom:16px">Sıkça Sorulan Sorular</h3>
+        <div class="flex flex-col gap-3" id="faq-list">
+          <div class="faq-item glass-surface rounded-xl overflow-hidden">
+            <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center" onclick="toggleFaq(this)">
+              <span class="font-body-md font-bold" style="color:#e3e3de">Abonelik ücretli mi?</span>
+              <span class="material-symbols-outlined transition-transform duration-300" style="color:#f6be39">expand_more</span>
+            </button>
+            <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">Evet, Ayet Kilidi premium bir maneviyat asistanıdır. Aylık (₺24.99), Yıllık (₺149.99) ve Ömür Boyu (₺399.99) olmak üzere 3 farklı avantajlı abonelik seçeneğimiz bulunmaktadır.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-surface rounded-xl overflow-hidden">
+            <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center" onclick="toggleFaq(this)">
+              <span class="font-body-md font-bold" style="color:#e3e3de">Hangi platformlarda çalışır?</span>
+              <span class="material-symbols-outlined transition-transform duration-300" style="color:#f6be39">expand_more</span>
+            </button>
+            <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">iOS App Store ve Android Google Play Mağazaları üzerinden indirilebilir. Tek bir abonelik ile tüm cihazlarınızda kullanabilirsiniz.</p>
+            </div>
+          </div>
+          <div class="faq-item glass-surface rounded-xl overflow-hidden">
+            <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center" onclick="toggleFaq(this)">
+              <span class="font-body-md font-bold" style="color:#e3e3de">İptal işlemi nasıl yapılır?</span>
+              <span class="material-symbols-outlined transition-transform duration-300" style="color:#f6be39">expand_more</span>
+            </button>
+            <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">Aboneliğinizi dilediğiniz an Apple App Store veya Google Play hesap ayarlarınızdan taahhütsüz ve tek tıkla iptal edebilirsiniz.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal" style="transition-delay:.15s">
+      <div class="glass-surface p-stack-lg md:p-12 rounded-3xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1" style="background:linear-gradient(90deg,transparent,rgba(246,190,57,0.4),transparent)"></div>
+
+        <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:#e3e3de;margin-bottom:24px">Mesaj Gönderin</h2>
+
+        <form class="flex flex-col gap-6 relative z-10" id="contact-form" novalidate>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="form-label" for="name">İsim Soyisim</label>
+              <input class="input-field" id="name" name="name" placeholder="Adınızı giriniz" required type="text"/>
+              <span class="field-error" style="font-size:11px;color:#ffb4ab;display:none;margin-top:4px;font-family:'Manrope',sans-serif">Bu alan zorunludur.</span>
+            </div>
+            <div>
+              <label class="form-label" for="email">E-posta Adresi</label>
+              <input class="input-field" id="email" name="email" placeholder="ornek@mail.com" required type="email"/>
+              <span class="field-error" style="font-size:11px;color:#ffb4ab;display:none;margin-top:4px;font-family:'Manrope',sans-serif">Geçerli bir e-posta girin.</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="form-label" for="category">Konu Kategorisi</label>
+            <select class="input-field" id="category" name="category">
+              <option value="">Kategori seçin...</option>
+              <option value="abonelik">Abonelik & Ödeme</option>
+              <option value="teknik">Teknik Destek</option>
+              <option value="oneri">Özellik Önerisi</option>
+              <option value="hata">Hata Bildirimi</option>
+              <option value="diger">Diğer</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label" for="subject">Konu</label>
+            <input class="input-field" id="subject" name="subject" placeholder="Nasıl yardımcı olabiliriz?" required type="text"/>
+            <span class="field-error" style="font-size:11px;color:#ffb4ab;display:none;margin-top:4px;font-family:'Manrope',sans-serif">Bu alan zorunludur.</span>
+          </div>
+
+          <div>
+            <label class="form-label" for="message">Mesajınız</label>
+            <textarea class="input-field" id="message" name="message" placeholder="Düşüncelerinizi buraya yazın..." required rows="5" style="resize:none"></textarea>
+            <div class="flex justify-between mt-1">
+              <span class="field-error" style="font-size:11px;color:#ffb4ab;display:none;font-family:'Manrope',sans-serif">Bu alan zorunludur.</span>
+              <span id="char-count" style="font-size:11px;color:rgba(211,197,174,0.5);margin-left:auto;font-family:'Manrope',sans-serif">0 / 500</span>
+            </div>
+          </div>
+
+          <div class="mt-2 flex justify-end">
+            <button class="cta-btn group font-bold px-10 py-4 rounded-xl flex items-center gap-3 font-label-caps text-label-caps" id="submit-btn" type="submit">
+              <span class="relative z-10">Mesajı Gönder</span>
+              <span class="material-symbols-outlined relative z-10 transition-transform group-hover:translate-x-1" id="send-icon">send</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="absolute -bottom-20 -right-20 w-64 h-64 rounded-full" style="background:rgba(246,190,57,0.08);filter:blur(80px)"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full px-margin-x py-section-gap flex flex-col md:flex-row justify-between items-start gap-stack-lg border-t relative z-10" style="background:#0d0f0c;border-top-color:rgba(79,70,52,0.2)">
+  <div class="flex flex-col gap-4">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#f6be39">Ayet Kilidi</div>
+    <p class="font-body-md" style="color:#d3c5ae">&copy; 2024 Ayet Kilidi. Dijital Mukaddesat.</p>
+  </div>
+  <div class="flex flex-wrap gap-x-12 gap-y-6">
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Kurumsal</span>
+      <a class="font-body-md" href="index.html" style="color:#d3c5ae">Hakkımızda</a>
+      <a class="font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik Planları</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Destek</span>
+      <a class="font-body-md hover:text-primary" href="gizlilik-politikasi.html" style="color:#d3c5ae">Gizlilik Politikası</a>
+      <a class="font-body-md" href="#" style="color:#d3c5ae">Sıkça Sorulan Sorular</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Sosyal Medya</span>
+      <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="https://instagram.com/ayetkilidi" target="_blank" style="color:#d3c5ae">
+        <span style="color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
+        <span>Instagram (@ayetkilidi)</span>
+      </a>
+      <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="https://tiktok.com/@ayetkilidi" target="_blank" style="color:#d3c5ae">
+        <span style="color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.31 1.56-1.3 2.57.01 1.05.58 2.05 1.48 2.58.97.58 2.22.6 3.22.11.85-.41 1.47-1.22 1.64-2.14.05-1.25.04-2.5.04-3.75V.02z"/></svg></span>
+        <span>TikTok (@ayetkilidi)</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast fixed bottom-8 left-1/2 px-6 py-4 rounded-xl flex items-center gap-3 z-50" style="background:rgba(20,43,34,0.9);backdrop-filter:blur(20px);border:1px solid rgba(212,160,23,0.3)">
+  <span id="toast-icon" class="material-symbols-outlined" style="color:#f6be39;font-variation-settings:'FILL' 1">check_circle</span>
+  <span id="toast-msg" class="font-body-md" style="color:#e3e3de"></span>
+</div>
+
+<script>
+const pc=document.getElementById('particle-container');
+for(let i=0;i<40;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*3+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:-10px;animation-delay:${Math.random()*20}s;animation-duration:${Math.random()*10+10}s;opacity:${Math.random()*0.3+0.1}`;pc.appendChild(p)}
+
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  const d=document.documentElement;document.getElementById('scroll-progress').style.width=((window.scrollY/(d.scrollHeight-d.clientHeight))*100)+'%';
+});
+
+const tog=document.getElementById('mobile-toggle'),mm=document.getElementById('mobile-menu'),ic=document.getElementById('menu-icon');
+tog.addEventListener('click',()=>{mm.classList.toggle('open');ic.textContent=mm.classList.contains('open')?'close':'menu'});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ic.textContent='menu'}));
+
+const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function showToast(msg,icon){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent=msg;if(icon)document.getElementById('toast-icon').textContent=icon;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+
+function toggleFaq(btn){const answer=btn.nextElementSibling,icon=btn.querySelector('.material-symbols-outlined'),isOpen=answer.style.maxHeight!=='0px'&&answer.style.maxHeight!=='';
+  document.querySelectorAll('.faq-answer').forEach(a=>a.style.maxHeight='0px');
+  document.querySelectorAll('.faq-btn .material-symbols-outlined').forEach(i=>i.style.transform='rotate(0deg)');
+  if(!isOpen){answer.style.maxHeight=answer.scrollHeight+'px';icon.style.transform='rotate(180deg)'}}
+
+document.getElementById('message').addEventListener('input',function(){const l=this.value.length;document.getElementById('char-count').textContent=l+' / 500';if(l>500){this.value=this.value.substring(0,500)}})
+
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  let valid=true;
+  this.querySelectorAll('[required]').forEach(field=>{
+    const err=field.nextElementSibling;
+    if(err&&err.classList.contains('field-error')){
+      if(!field.value.trim()){err.style.display='block';field.style.borderColor='#ffb4ab';valid=false}
+      else{err.style.display='none';field.style.borderColor='rgba(212, 160, 23, 0.25)'}
+    }
+  });
+  const emailField=document.getElementById('email');
+  const emailErr=emailField.nextElementSibling;
+  if(emailField.value.trim()&&!/\S+@\S+\.\S+/.test(emailField.value)){emailErr.style.display='block';emailField.style.borderColor='#ffb4ab';valid=false}
+  
+  if(!valid){showToast('Lütfen tüm zorunlu alanları doldurun.','error');return}
+  
+  const btn=document.getElementById('submit-btn'),origHTML=btn.innerHTML;
+  btn.disabled=true;
+  btn.innerHTML='<span class="material-symbols-outlined animate-spin relative z-10">progress_activity</span><span class="relative z-10">İşleniyor...</span>';
+  
+  setTimeout(()=>{
+    btn.innerHTML='<span class="material-symbols-outlined relative z-10">check_circle</span><span class="relative z-10">Gönderildi!</span>';
+    btn.style.background='linear-gradient(135deg,#1e352b,#2b4238)';
+    btn.style.color='#b2cdbf';
+    showToast('Mesajınız başarıyla gönderildi! En kısa sürede döneceğiz.','check_circle');
+    this.reset();document.getElementById('char-count').textContent='0 / 500';
+    setTimeout(()=>{btn.disabled=false;btn.innerHTML=origHTML;btn.style.background='';btn.style.color=''},4000);
+  },1500);
+});
+</script>
+</body>
+</html>

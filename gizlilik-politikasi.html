@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Ayet Kilidi - Gizlilik Politikası ve KVKK Aydınlatma Metni."/>
+<title>Gizlilik Politikası | Ayet Kilidi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#f6be39","primary-container":"#d4a017","on-primary":"#402d00","background":"#0A1A14","on-surface":"#e3e3de","on-surface-variant":"#d3c5ae","outline-variant":"#4f4634"},spacing:{"container-max":"1200px","stack-md":"16px","gutter":"24px","stack-lg":"32px","margin-x":"clamp(1rem, 5vw, 4rem)","stack-sm":"8px","section-gap":"clamp(4rem, 10vw, 8rem)"},fontFamily:{"display-lg":["Playfair Display"],"headline-md":["Playfair Display"],"headline-sm":["Playfair Display"],"body-md":["Manrope"],"body-lg":["Manrope"],"label-caps":["Manrope"]},fontSize:{"label-caps":["12px",{"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["32px",{"lineHeight":"40px","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"40px","fontWeight":"600"}],"headline-sm":["24px",{"lineHeight":"32px","fontWeight":"600"}]}}}}
+</script>
+<style>
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{background-color:#0A1A14;color:#e3e3de;overflow-x:hidden;font-family:'Manrope',sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
+.glass-surface{background:rgba(20,43,34,0.5);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,160,23,0.15)}
+.primary-btn-glow{box-shadow:0 8px 24px rgba(212,160,23,0.2);transition:all .3s ease}
+.particle{position:absolute;background:rgba(246,190,57,0.2);border-radius:50%;pointer-events:none;animation:float 20s infinite linear}
+@keyframes float{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) rotate(360deg);opacity:0}}
+nav.scrolled{background:rgba(10,26,20,0.95)!important;border-bottom-color:rgba(212,160,23,0.2)!important}
+#mobile-menu{display:none;background:rgba(10,26,20,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,160,23,0.1)}
+#mobile-menu.open{display:block}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#f6be39,#d4a017);z-index:9999;width:0%;transition:width .1s linear}
+footer a{transition:color .2s ease}
+.privacy-card{background:rgba(20,43,34,0.4);border:1px solid rgba(212,160,23,0.12);border-radius:20px;padding:32px}
+.privacy-card h2{font-family:'Playfair Display',serif;font-size:22px;color:#f6be39;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.privacy-card p, .privacy-card ul{color:#d3c5ae;line-height:1.7;font-size:15px}
+.privacy-card ul{list-style-type:disc;padding-left:20px;margin-top:8px}
+</style>
+</head>
+<body class="font-body-md text-body-md">
+<div id="scroll-progress"></div>
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0" id="particle-container"></div>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5" style="background:transparent;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)">
+  <div class="flex justify-between items-center px-margin-x py-stack-md max-w-container-max mx-auto">
+    <a href="index.html" style="font-family:'Playfair Display',serif;font-weight:700;font-size:24px;color:#f6be39;text-decoration:none">Ayet Kilidi</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md transition-colors duration-300" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
+      <a class="font-body-md transition-colors duration-300" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button onclick="showToast('Uygulama')" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif">İNDİR</button>
+      <button id="mobile-toggle" class="md:hidden p-1" style="color:#e3e3de">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden px-6 py-4 flex flex-col gap-4">
+    <a class="py-2 font-body-md" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
+    <a class="py-2 font-body-md" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+    <a class="py-2 font-body-md" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
+    <a class="py-2 font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
+    <a class="py-2 font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
+  </div>
+</nav>
+
+<main class="relative z-10 pt-36 pb-section-gap px-margin-x max-w-container-max mx-auto space-y-8">
+  <div class="text-center max-w-2xl mx-auto reveal">
+    <span class="font-label-caps text-label-caps tracking-[0.2em] mb-3 block" style="color:#f6be39;text-transform:uppercase">YASAL GİZLİLİK VE ŞARTLAR</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:#e3e3de">Gizlilik Politikası</h1>
+    <p style="color:#d3c5ae;margin-top:12px">Son Güncelleme: 4 Temmuz 2026</p>
+  </div>
+
+  <div class="max-w-4xl mx-auto space-y-6 reveal">
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">shield</span> 1. Genel Bakış ve Gizlilik İlkesi</h2>
+      <p>
+        Ayet Kilidi mobil uygulaması ("Uygulama"), kullanıcılarımızın kişisel gizliliğine ve manevi deneyimlerinin kutsallığına en üst düzeyde saygı duyar. Uygulamamız, mahremiyet ilkesini temel alarak tasarlanmıştır. Bu politikada kullanıcı verilerinin nasıl ele alındığı açıklanmaktadır.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">storage</span> 2. Yerel Veri Depolama (Local Storage)</h2>
+      <p>
+        Ayet Kilidi içerisindeki tüm kişisel kullanım verileri <strong>tamamen cihazınızın yerel hafızasında (Local Storage)</strong> saklanır. Sunucularımıza hiçbir kişisel okuma geçmişiniz, favori ayetleriniz veya hatim ilerlemeniz iletilmez:
+      </p>
+      <ul>
+        <li>Hatim ve cüz tamamlama durumunuz cihazınızda yerel olarak kaydedilir.</li>
+        <li>Yer işaretleri, kaydettiğiniz ayetler ve kişisel notlarınız harici sunuculara aktarılmaz.</li>
+        <li>Uygulamayı sildiğiniz takdirde cihazınızdaki yerel veriler otomatik olarak temizlenir.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">notifications_active</span> 3. Bildirim Hizmetleri</h2>
+      <p>
+        Günlük ayet hatırlatıcıları ve ibadet zamanı bildirimleri <strong>yerel bildirim (Local Notification)</strong> mimarisi ile çalışır. Bildirim saatleriniz ve tercihleriniz harici bir sunucu tarafından takip edilmez veya tetiklenmez; tüm işlemler doğrudan cihazınızın işletim sistemi tarafından yürütülür.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">credit_card</span> 4. Abonelikler ve Ödeme Güvenliği</h2>
+      <p>
+        Ayet Kilidi premium abonelik hizmetleri (Aylık ₺24.99, Yıllık ₺149.99, Ömür Boyu ₺399.99) doğrudan resmi uygulama mağazaları olan <strong>Apple App Store (In-App Purchase)</strong> ve <strong>Google Play Store (In-App Billing)</strong> altyapısı üzerinden gerçekleştirilir:
+      </p>
+      <ul>
+        <li>Kredi kartı, banka bilgileri veya ödeme yöntemleriniz tarafımızca asla görülmez, toplanmaz veya saklanmaz.</li>
+        <li>Tüm finansal işlemler Apple ve Google'ın küresel güvenlik standartlarına tabidir.</li>
+        <li>Abonelik yönetimi ve iptal işlemleri mağaza hesap ayarlarınız üzerinden tek tıkla yapılabilir.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">lock</span> 5. KVKK ve 3. Taraf Paylaşımı</h2>
+      <p>
+        6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve GDPR standartlarına uygun olarak; kullanıcı verileriniz hiçbir şekilde üçüncü kişilere satılmaz, kiralanmaz veya pazarlama amacıyla paylaşılmaz. Uygulamamızda kişisel takip gerçekleştiren reklam veya izleme kütüphaneleri yer almaz.
+      </p>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">mail</span> 6. İletişim</h2>
+      <p>
+        Gizlilik politikamız veya uygulamamızla ilgili her türlü soru, görüş ve talepleriniz için <a href="mailto:destek@ayetkilidi.com" style="color:#f6be39;text-decoration:underline">destek@ayetkilidi.com</a> e-posta adresi üzerinden veya web sitemizdeki <a href="iletisim.html" style="color:#f6be39;text-decoration:underline">İletişim</a> sayfasından bize ulaşabilirsiniz.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full px-margin-x py-section-gap flex flex-col md:flex-row justify-between items-start gap-stack-lg border-t relative z-10" style="background:#0d0f0c;border-top-color:rgba(79,70,52,0.2)">
+  <div class="flex flex-col gap-4">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#f6be39">Ayet Kilidi</div>
+    <p class="font-body-md" style="color:#d3c5ae">&copy; 2024 Ayet Kilidi. Dijital Mukaddesat.</p>
+  </div>
+  <div class="flex flex-wrap gap-x-12 gap-y-6">
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Kurumsal</span>
+      <a class="font-body-md" href="index.html" style="color:#d3c5ae">Hakkımızda</a>
+      <a class="font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik Planları</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Destek</span>
+      <a class="font-body-md" href="gizlilik-politikasi.html" style="color:#f6be39;font-weight:700">Gizlilik Politikası</a>
+      <a class="font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Sosyal Medya</span>
+      <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="https://instagram.com/ayetkilidi" target="_blank" style="color:#d3c5ae">
+        <span style="color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
+        <span>Instagram (@ayetkilidi)</span>
+      </a>
+      <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="https://tiktok.com/@ayetkilidi" target="_blank" style="color:#d3c5ae">
+        <span style="color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.31 1.56-1.3 2.57.01 1.05.58 2.05 1.48 2.58.97.58 2.22.6 3.22.11.85-.41 1.47-1.22 1.64-2.14.05-1.25.04-2.5.04-3.75V.02z"/></svg></span>
+        <span>TikTok (@ayetkilidi)</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast fixed bottom-8 left-1/2 glass-card px-6 py-4 rounded-xl flex items-center gap-3 z-50" style="border-color:rgba(212,160,23,0.3)">
+  <span class="material-symbols-outlined" style="color:#f6be39;font-variation-settings:'FILL' 1">check_circle</span>
+  <span id="toast-msg" class="font-body-md" style="color:#e3e3de"></span>
+</div>
+
+<script>
+const pc=document.getElementById('particle-container');
+for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*3+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:-10px;animation-delay:${Math.random()*20}s;animation-duration:${Math.random()*10+10}s;opacity:${Math.random()*0.3+0.1}`;pc.appendChild(p)}
+
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  const d=document.documentElement;document.getElementById('scroll-progress').style.width=((window.scrollY/(d.scrollHeight-d.clientHeight))*100)+'%';
+});
+
+const tog=document.getElementById('mobile-toggle'),mm=document.getElementById('mobile-menu'),ic=document.getElementById('menu-icon');
+tog.addEventListener('click',()=>{mm.classList.toggle('open');ic.textContent=mm.classList.contains('open')?'close':'menu'});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ic.textContent='menu'}));
+
+const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function showToast(p){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent='Uygulamayı App Store veya Google Play üzerinden indirebilirsiniz.';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+</script>
+</body>
+</html>
