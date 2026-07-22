@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="Ayet Kilidi - Dijital Mukaddesat Deneyimi. Kutsal metinlerle modern ve zarif bir bağ."/>
-<title>Ayet Kilidi - Dijital Mukaddesat</title>
+<meta name="description" content="Ayet Kilidi - Kuran-ı Kerim Ayet ve Sure Okuma, Hatim Takibi ve Dijital Mukaddesat Deneyimi."/>
+<title>Ayet Kilidi - Kuran-ı Kerim, Ayet ve Sure Okuma</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -69,12 +69,12 @@ footer a{transition:color .2s ease}
     <div class="hidden md:flex gap-8 items-center" id="nav-links">
       <a class="nav-link active font-body-md" href="#hero" data-section="hero">Ana Sayfa</a>
       <a class="nav-link font-body-md" href="#features" data-section="features">Özellikler</a>
+      <a class="nav-link font-body-md" href="#okuma" data-section="okuma">Ayet & Sure Okuma</a>
       <a class="nav-link font-body-md" href="#hatim" data-section="hatim">Hatim</a>
-      <a class="nav-link font-body-md" href="#pricing" data-section="pricing">Abonelik</a>
       <a class="nav-link font-body-md" href="iletisim.html">İletişim</a>
     </div>
     <div class="flex items-center gap-4">
-      <button onclick="showToast('Uygulama')" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2" style="background:#d4a017;color:#0a1a14;box-shadow:0 8px 24px rgba(212,160,23,0.25);font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif">İNDİR</button>
+      <a href="indir.html" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2" style="background:#d4a017;color:#0a1a14;box-shadow:0 8px 24px rgba(212,160,23,0.25);font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif;text-decoration:none">İNDİR</a>
       <button id="mobile-toggle" class="md:hidden p-1" aria-label="Menu" style="color:#e3e3de">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
@@ -83,8 +83,9 @@ footer a{transition:color .2s ease}
   <div id="mobile-menu" class="md:hidden px-6 py-4 flex flex-col gap-4">
     <a class="py-2 font-body-md" href="#hero" style="color:#f6be39">Ana Sayfa</a>
     <a class="py-2 font-body-md" href="#features" style="color:#d3c5ae">Özellikler</a>
+    <a class="py-2 font-body-md" href="#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
     <a class="py-2 font-body-md" href="#hatim" style="color:#d3c5ae">Hatim</a>
-    <a class="py-2 font-body-md" href="#pricing" style="color:#d3c5ae">Abonelik</a>
+    <a class="py-2 font-body-md" href="indir.html" style="color:#f6be39;font-weight:700">Uygulamayı İndir</a>
     <a class="py-2 font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
   </div>
 </nav>
@@ -96,12 +97,12 @@ footer a{transition:color .2s ease}
   <div class="relative z-10 max-w-container-max w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
     <div class="flex flex-col space-y-stack-lg text-center lg:text-left reveal">
       <div class="space-y-4">
-        <span class="font-label-caps text-label-caps tracking-[0.2em] uppercase block" style="color:#f6be39">Dijital Mukaddesat Deneyimi</span>
+        <span class="font-label-caps text-label-caps tracking-[0.2em] uppercase block" style="color:#f6be39">Ücretsiz Dijital Mukaddesat Deneyimi</span>
         <h1 class="text-display-lg-mobile md:text-display-lg text-glow" style="font-family:'Playfair Display',serif;color:#e3e3de;line-height:1.1">
           Kutsal Metinlerle<br><span style="color:#f6be39">Modern Bir Bağ</span>
         </h1>
         <p class="font-body-lg text-body-lg max-w-xl mx-auto lg:mx-0" style="color:#d3c5ae">
-          Her gün bir ayetle ruhunuzu dinlendirin. Ayet Kilidi ile maneviyat cebinizde, kutsal yolculuğunuzda size eşlik edecek zarif bir asistan.
+          Gelişmiş ayet ve sure okuma modları, mealler, sesli tilavetler ve hatim takibi ile maneviyat cebinizde. Tamamen ücretsiz ve kesintisiz okuma deneyimi.
         </p>
       </div>
       <div class="flex gap-8 justify-center lg:justify-start pt-2">
@@ -117,24 +118,24 @@ footer a{transition:color .2s ease}
         <div style="width:1px;background:rgba(79,70,52,0.4);align-self:stretch"></div>
         <div class="text-center">
           <div id="counter-verses" style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#f6be39;line-height:1">0</div>
-          <div class="text-sm mt-1 font-body-md" style="color:#d3c5ae">Toplam Ayet</div>
+          <div class="text-sm mt-1 font-body-md" style="color:#d3c5ae">Toplam Ayet (114 Sure)</div>
         </div>
       </div>
 
-      <!-- TURKISH BADGES WITH PROPER APPLE & GOOGLE ICONS -->
+      <!-- TURKISH BADGES WITH OFFICIAL STORE LINKS -->
       <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
-        <a class="download-badge glass-card flex items-center gap-3.5 px-6 py-3 rounded-xl" href="#" onclick="showToast('App Store');return false">
+        <a class="download-badge glass-card flex items-center gap-3.5 px-6 py-3 rounded-xl" href="https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr" target="_blank" style="text-decoration:none">
           <div style="color:#f6be39"><svg class="w-7 h-7 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/></svg></div>
           <div class="text-left">
             <div style="font-size:10px;color:rgba(211,197,174,0.7);text-transform:uppercase;letter-spacing:.08em;font-family:'Manrope',sans-serif;font-weight:500">App Store'dan</div>
-            <div style="font-weight:700;font-size:17px;color:#e3e3de;font-family:'Manrope',sans-serif;line-height:1.2">İndirin</div>
+            <div style="font-weight:700;font-size:17px;color:#e3e3de;font-family:'Manrope',sans-serif;line-height:1.2">Ücretsiz İndirin</div>
           </div>
         </a>
-        <a class="download-badge glass-card flex items-center gap-3.5 px-6 py-3 rounded-xl" href="#" onclick="showToast('Google Play');return false">
+        <a class="download-badge glass-card flex items-center gap-3.5 px-6 py-3 rounded-xl" href="https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi" target="_blank" style="text-decoration:none">
           <svg class="w-7 h-7" viewBox="0 0 512 512"><path fill="#00e676" d="M49.6 20.3C43.5 24 40 30.5 40 38.6v434.8c0 8.1 3.5 14.6 9.6 18.3l227.1-236.4L49.6 20.3z"/><path fill="#ff3d00" d="M374.8 190.2L276.7 255.3 49.6 20.3c6.9-4.1 15.4-4.8 23.3-.6l301.9 170.5z"/><path fill="#ffc107" d="M374.8 321.8L72.9 492.3c-7.9 4.2-16.4 3.5-23.3-.6l227.1-235 98.1 65.1z"/><path fill="#29b6f6" d="M462.4 240.2L374.8 190.2l-98.1 65.1 98.1 65.1 87.6-50c14.2-8.1 22.8-23.2 22.8-39.6-.1-16.5-8.7-31.5-22.8-39.6z"/></svg>
           <div class="text-left">
             <div style="font-size:10px;color:rgba(211,197,174,0.7);text-transform:uppercase;letter-spacing:.08em;font-family:'Manrope',sans-serif;font-weight:500">Google Play'den</div>
-            <div style="font-weight:700;font-size:17px;color:#e3e3de;font-family:'Manrope',sans-serif;line-height:1.2">İndirin</div>
+            <div style="font-weight:700;font-size:17px;color:#e3e3de;font-family:'Manrope',sans-serif;line-height:1.2">Ücretsiz İndirin</div>
           </div>
         </a>
       </div>
@@ -173,7 +174,7 @@ footer a{transition:color .2s ease}
           <div style="padding:14px">
             <div style="text-align:center;margin-bottom:12px">
               <div style="font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:rgba(211,197,174,0.5);font-family:'Manrope',sans-serif;margin-bottom:3px">Günün Ayeti</div>
-              <div style="font-size:9px;color:#f6be39;font-family:'Manrope',sans-serif">4 Temmuz 2026</div>
+              <div style="font-size:9px;color:#f6be39;font-family:'Manrope',sans-serif">22 Temmuz 2026</div>
             </div>
             <div style="background:rgba(20,43,34,0.7);border:1px solid rgba(212,160,23,0.15);border-radius:14px;padding:16px">
               <div class="arabic-verse" style="font-size:1rem;text-align:center">&#x25CF; &#x641;&#x64E;&#x627;&#x650;&#x646;&#x651;&#x64E; &#x645;&#x64E;&#x639;&#x64E; &#x627;&#x644;&#x652;&#x639;&#x64F;&#x633;&#x652;&#x631;&#x650; &#x64A;&#x64F;&#x633;&#x652;&#x631;&#x64B;&#x627; &#x25CF;</div>
@@ -215,11 +216,21 @@ footer a{transition:color .2s ease}
     <div class="text-center mb-16 reveal">
       <span class="font-label-caps text-label-caps tracking-[0.2em] uppercase" style="color:#f6be39">Keşfedin</span>
       <h2 class="mt-4" style="font-family:'Playfair Display',serif;font-size:32px;font-weight:600;color:#e3e3de">Benzersiz Özellikler</h2>
-      <p class="max-w-lg mx-auto mt-4 font-body-md" style="color:#d3c5ae">Manevi yolculuğunuzu zenginleştirmek için tasarlanmış kapsamlı araçlar.</p>
+      <p class="max-w-lg mx-auto mt-4 font-body-md" style="color:#d3c5ae">Manevi yolculuğunuzu zenginleştirmek için tasarlanmış kapsamlı okuma ve hatim araçları.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 
       <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.1s">
+        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(246,190,57,0.1);color:#f6be39">
+          <span class="material-symbols-outlined text-3xl" style="font-variation-settings:'FILL' 1">menu_book</span>
+        </div>
+        <h3 class="mb-3" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#e3e3de">Ayet ve Sure Okuma</h3>
+        <p class="font-body-md mb-4" style="color:#d3c5ae">114 sure ve 6236 ayetin tamamını Arapça metin, meal ve tefsir seçenekleriyle rahatça okuyun.</p>
+        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">114 Sure Dizi ve Arama</span></div>
+        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Sure / Ayet Bazlı Görünüm</span></div>
+      </div>
+
+      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.2s">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(246,190,57,0.1);color:#f6be39">
           <span class="material-symbols-outlined text-3xl" style="font-variation-settings:'FILL' 1">auto_stories</span>
         </div>
@@ -229,44 +240,34 @@ footer a{transition:color .2s ease}
         <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Haftalık Hedefler</span></div>
       </div>
 
-      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.2s">
+      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.3s">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(246,190,57,0.1);color:#f6be39">
           <span class="material-symbols-outlined text-3xl" style="font-variation-settings:'FILL' 1">notifications_active</span>
         </div>
         <h3 class="mb-3" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#e3e3de">Günlük Hatırlatıcılar</h3>
         <p class="font-body-md mb-4" style="color:#d3c5ae">Ruhunuzu dinlendirecek ayetleri seçtiğiniz saatlerde bildirim olarak alın. Maneviyatı günlük rutininizin parçası yapın.</p>
-        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">5 Vakit Bildirimi</span></div>
-        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Özelleştirilebilir Saat</span></div>
+        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Özelleştirilebilir Bildirimler</span></div>
+        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Günün Ayeti Hatırlatıcısı</span></div>
       </div>
 
-      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.3s">
+      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.1s">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(246,190,57,0.1);color:#f6be39">
           <span class="material-symbols-outlined text-3xl" style="font-variation-settings:'FILL' 1">text_increase</span>
         </div>
         <h3 class="mb-3" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#e3e3de">Yazı Boyutu Ayarı</h3>
         <p class="font-body-md mb-4" style="color:#d3c5ae">Okuma deneyiminizi kişiselleştirin. Yazı boyutu, font seçimi ve gece modu ile gözlerinizi yormadan okuyun.</p>
         <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Karanlık / Aydınlık Mod</span></div>
-        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">5 Farklı Font</span></div>
+        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Farklı Arapça Fontlar</span></div>
       </div>
 
-      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.1s">
+      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.2s">
         <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(246,190,57,0.1);color:#f6be39">
           <span class="material-symbols-outlined text-3xl" style="font-variation-settings:'FILL' 1">volume_up</span>
         </div>
         <h3 class="mb-3" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#e3e3de">Sesli Tilavet</h3>
         <p class="font-body-md mb-4" style="color:#d3c5ae">Dünyanın önde gelen hafızlarından yüksek kaliteli tilavet dinleyin. Tecvid ile öğrenin, dinleyin, hissedin.</p>
-        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">10+ Hafız Seçeneği</span></div>
-        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Hız Kontrolü</span></div>
-      </div>
-
-      <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.2s">
-        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(246,190,57,0.1);color:#f6be39">
-          <span class="material-symbols-outlined text-3xl" style="font-variation-settings:'FILL' 1">translate</span>
-        </div>
-        <h3 class="mb-3" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#e3e3de">Meal ve Tefsir</h3>
-        <p class="font-body-md mb-4" style="color:#d3c5ae">Türkçe, İngilizce ve 20+ dilde meal seçeneği. Ayet bazında tefsir ve açıklamalarla derinlemesine anlayın.</p>
-        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">20+ Dil Seçeneği</span></div>
-        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Çevrimdışı Meal</span></div>
+        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Çeşitli Hafız Seçenekleri</span></div>
+        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Ayet Ayet Dinleme</span></div>
       </div>
 
       <div class="feature-card glass-card p-stack-lg rounded-xl reveal" style="transition-delay:.3s">
@@ -275,8 +276,78 @@ footer a{transition:color .2s ease}
         </div>
         <h3 class="mb-3" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#e3e3de">Çevrimdışı Erişim</h3>
         <p class="font-body-md mb-4" style="color:#d3c5ae">İnternet bağlantısı olmadan da tüm içeriklere erişim sağlayın. Uçakta, dağda, her yerde Kuran sizinle.</p>
-        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Tam Çevrimdışı Destek</span></div>
-        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Düşük Depolama</span></div>
+        <div class="flex items-center gap-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Tam Çevrimdışı Okuma</span></div>
+        <div class="flex items-center gap-2 mt-2" style="color:#f6be39"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-sm font-body-md">Hızlı ve Hafif</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- AYET & SURE OKUMA FEATURE SHOWCASE SECTION (NEW) -->
+<section class="py-section-gap px-margin-x" id="okuma">
+  <div class="max-w-container-max mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="font-label-caps text-label-caps tracking-[0.2em] uppercase" style="color:#f6be39">Yeni Özellikler</span>
+      <h2 class="mt-4" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#e3e3de">Gelişmiş Ayet & Sure Okuma Deneyimi</h2>
+      <p class="max-w-xl mx-auto mt-4 font-body-md" style="color:#d3c5ae">Kuran-ı Kerim'i ayet ayet veya sure sure derinlemesine okumanızı ve incelemenizi sağlayan zengin özellikler.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between reveal" style="transition-delay:.1s">
+        <div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(246,190,57,0.15);color:#f6be39">
+            <span class="material-symbols-outlined text-3xl">format_list_bulleted</span>
+          </div>
+          <span class="font-label-caps text-label-caps uppercase tracking-wider block mb-2" style="color:#f6be39">114 SURE KATEGORİSİ</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:#e3e3de">Sure Dizin ve Hızlı Arama</h3>
+          <p class="mt-3 mb-6 font-body-md" style="color:#d3c5ae">Fatiha'dan Nas'a kadar 114 surenin tümüne tek tıkla ulaşın. Sure ismi veya numarasıyla saniyeler içinde arama yapın.</p>
+          <ul class="space-y-3 mb-8" style="color:#d3c5ae;font-size:14px">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Mekki ve Medeni bilgisi</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Nuzül sırası ve ayet sayıları</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Anında sure arama motoru</li>
+          </ul>
+        </div>
+        <a href="indir.html" class="w-full py-3.5 rounded-xl font-bold font-label-caps text-center inline-block" style="border:1px solid #f6be39;color:#f6be39;transition:all .3s ease;text-decoration:none">UYGULAMAYI İNDİR</a>
+      </div>
+
+      <div class="glass-card-popular p-8 rounded-2xl flex flex-col justify-between relative reveal" style="transition-delay:.2s">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold font-label-caps" style="background:#f6be39;color:#0a1a14;letter-spacing:.1em">ÖNE ÇIKAN ÖZELLİK</div>
+        <div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(246,190,57,0.25);color:#f6be39">
+            <span class="material-symbols-outlined text-3xl">import_contacts</span>
+          </div>
+          <span class="font-label-caps text-label-caps uppercase tracking-wider block mb-2" style="color:#f6be39">ESNEK OKUMA MODU</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#e3e3de">Ayet Ayet ve Sure Sure Okuma</h3>
+          <p class="mt-3 mb-6 font-body-md" style="color:#e3e3de">İster tam sure görünümüyle ister ayet ayet odaklanmış okuma moduyla Kuran-ı Kerim'in derinliğine inin.</p>
+          <ul class="space-y-3.5 mb-8" style="color:#e3e3de;font-size:14px">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Orijinal Arapça hat ve tecvid desteği</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Türkçe Meal ve tefsir seçenekleri</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Ayet bazlı sesli tilavet dinleme</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Yer işareti ekleme ve paylaşma</li>
+          </ul>
+        </div>
+        <a href="indir.html" class="w-full py-4 rounded-xl font-bold font-label-caps cta-primary text-center inline-block" style="color:#0a1a14;text-decoration:none">HEMEN DENE</a>
+      </div>
+
+      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between reveal" style="transition-delay:.3s">
+        <div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(246,190,57,0.15);color:#f6be39">
+            <span class="material-symbols-outlined text-3xl">tune</span>
+          </div>
+          <span class="font-label-caps text-label-caps uppercase tracking-wider block mb-2" style="color:#d3c5ae">KİŞİSELLEŞTİRME</span>
+          <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:#e3e3de">Göz Dostu Özelleştirme</h3>
+          <p class="mt-3 mb-6 font-body-md" style="color:#d3c5ae">Yazı boyutlarını ayarlayın, karanlık mod ve özel fontlar ile uzun okumalarda gözlerinizi koruyun.</p>
+          <ul class="space-y-3 mb-8" style="color:#d3c5ae;font-size:14px">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Ayarlanabilir font puntoları</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Gece okuma / AMOLED modu</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> %100 Ücretsiz kullanım</li>
+          </ul>
+        </div>
+        <a href="indir.html" class="w-full py-3.5 rounded-xl font-bold font-label-caps text-center inline-block" style="border:1px solid #f6be39;color:#f6be39;transition:all .3s ease;text-decoration:none">UYGULAMAYI İNDİR</a>
       </div>
 
     </div>
@@ -343,82 +414,6 @@ footer a{transition:color .2s ease}
 
 <div class="section-divider"></div>
 
-<!-- SUBSCRIPTION SHOWCASE SECTION (UPDATED PRICES & NO DIRECT PURCHASE BUTTONS) -->
-<section class="py-section-gap px-margin-x" id="pricing">
-  <div class="max-w-container-max mx-auto">
-    <div class="text-center mb-16 reveal">
-      <span class="font-label-caps text-label-caps tracking-[0.2em] uppercase" style="color:#f6be39">Uygulama İçi Abonelikler</span>
-      <h2 class="mt-4" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#e3e3de">Uygulama İçi Abonelik Modelleri</h2>
-      <p class="max-w-xl mx-auto mt-4 font-body-md" style="color:#d3c5ae">Ayet Kilidi mobil uygulaması üzerinden App Store veya Google Play hesabınızla dilediğiniz abonelik paketini başlatabilirsiniz.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-
-      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between reveal" style="transition-delay:.1s">
-        <div>
-          <span class="font-label-caps text-label-caps uppercase tracking-wider block mb-2" style="color:#d3c5ae">ESNEK PLAN</span>
-          <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:#e3e3de">Aylık Abonelik</h3>
-          <div class="my-6">
-            <span style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#f6be39">₺24,99</span>
-            <span style="color:#d3c5ae;font-size:14px"> / ay</span>
-          </div>
-          <ul class="space-y-3 mb-8" style="color:#d3c5ae;font-size:14px">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Tüm Kuran ve Meal erişimi</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Sınırsız Hatim takibi</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Özelleştirilebilir bildirimler</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Yüksek kaliteli sesli tilavet</li>
-            <li class="flex items-center gap-2" style="opacity:.5"><span class="material-symbols-outlined text-sm">remove_circle_outline</span> Öncelikli destek imkanı</li>
-          </ul>
-        </div>
-        <button onclick="showToast('Uygulama')" class="w-full py-3.5 rounded-xl font-bold font-label-caps" style="border:1px solid #f6be39;color:#f6be39;transition:all .3s ease">UYGULAMADA İNCELE</button>
-      </div>
-
-      <div class="glass-card-popular p-8 rounded-2xl flex flex-col justify-between relative reveal" style="transition-delay:.2s">
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold font-label-caps" style="background:#f6be39;color:#0a1a14;letter-spacing:.1em">EN AVANTAJLI (%50 İNDİRİM)</div>
-        <div>
-          <span class="font-label-caps text-label-caps uppercase tracking-wider block mb-2" style="color:#f6be39">POPÜLER TERCİH</span>
-          <h3 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#e3e3de">Yıllık Abonelik</h3>
-          <div class="my-6">
-            <span style="font-family:'Playfair Display',serif;font-size:46px;font-weight:700;color:#f6be39">₺149,99</span>
-            <span style="color:#d3c5ae;font-size:14px"> / yıl</span>
-            <div style="font-size:12px;color:#f6be39;margin-top:2px">Aylık sadece ₺12,49'a denk gelir</div>
-          </div>
-          <ul class="space-y-3.5 mb-8" style="color:#e3e3de;font-size:14px">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Sınırsız Kuran, Meal ve Tefsirler</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Çevrimdışı (Offline) tüm içerikler</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Gelişmiş Hatim ve istatistik takibi</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Reklamsız tam manevi deneyim</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Öncelikli müşteri desteği</li>
-          </ul>
-        </div>
-        <button onclick="showToast('Uygulama')" class="w-full py-4 rounded-xl font-bold font-label-caps cta-primary" style="color:#0a1a14">UYGULAMADA İNCELE</button>
-      </div>
-
-      <div class="glass-card p-8 rounded-2xl flex flex-col justify-between reveal" style="transition-delay:.3s">
-        <div>
-          <span class="font-label-caps text-label-caps uppercase tracking-wider block mb-2" style="color:#d3c5ae">TEK SEFERLİK ÖDEME</span>
-          <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:#e3e3de">Ömür Boyu Erişim</h3>
-          <div class="my-6">
-            <span style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#f6be39">₺399,99</span>
-            <span style="color:#d3c5ae;font-size:14px"> / tek sefer</span>
-          </div>
-          <ul class="space-y-3 mb-8" style="color:#d3c5ae;font-size:14px">
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Sınırsız ömür boyu tam erişim</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Gelecekte eklenecek tüm özellikler</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Tüm platformlarda ortak kullanım</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Özel VIP destek kanalı</li>
-            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" style="color:#f6be39">check_circle</span> Aile paylaşımı desteği</li>
-          </ul>
-        </div>
-        <button onclick="showToast('Uygulama')" class="w-full py-3.5 rounded-xl font-bold font-label-caps" style="border:1px solid #f6be39;color:#f6be39;transition:all .3s ease">UYGULAMADA İNCELE</button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
 <!-- TESTIMONIALS -->
 <section class="py-section-gap px-margin-x">
   <div class="max-w-container-max mx-auto">
@@ -435,7 +430,7 @@ footer a{transition:color .2s ease}
           <span class="star material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>
           <span class="star material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>
         </div>
-        <p class="font-body-md mb-6" style="color:#d3c5ae">"Hayatımda gördüğüm en zarif Kuran uygulaması. Tasarımı mükemmel, kullanımı çok kolay. Yıllık abonelik kesinlikle verdiğim paraya değdi."</p>
+        <p class="font-body-md mb-6" style="color:#d3c5ae">"Hayatımda gördüğüm en zarif Kuran uygulaması. Tasarımı mükemmel, kullanımı çok kolay. Ayet ve sure okuma özelliği harika çalışıyor."</p>
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold" style="background:rgba(246,190,57,0.15);color:#f6be39;font-family:'Playfair Display',serif">A</div>
           <div>
@@ -452,7 +447,7 @@ footer a{transition:color .2s ease}
           <span class="star material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>
           <span class="star material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>
         </div>
-        <p class="font-body-md mb-6" style="color:#d3c5ae">"Hatim özelliği harika. Ömür boyu paketi aldım ve ailece rahatça kullanıyoruz. Teşekkürler Ayet Kilidi ekibi!"</p>
+        <p class="font-body-md mb-6" style="color:#d3c5ae">"Hatim ve sure okuma özelliği harika. Tamamen ücretsiz olması ve reklamsız okuma imkanı sunması takdire şayan. Teşekkürler Ayet Kilidi ekibi!"</p>
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold" style="background:rgba(246,190,57,0.15);color:#f6be39;font-family:'Playfair Display',serif">M</div>
           <div>
@@ -469,7 +464,7 @@ footer a{transition:color .2s ease}
           <span class="star material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>
           <span class="star material-symbols-outlined text-sm" style="font-variation-settings:'FILL' 1">star</span>
         </div>
-        <p class="font-body-md mb-6" style="color:#d3c5ae">"Sesli tilavet ve çevrimdışı mod harika. Arayüzü o kadar güzel ki uygulamayı açmak huzur veriyor."</p>
+        <p class="font-body-md mb-6" style="color:#d3c5ae">"Sesli tilavet, tefsir ve çevrimdışı okuma modu harika. Arayüzü o kadar güzel ki uygulamayı açmak huzur veriyor."</p>
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold" style="background:rgba(246,190,57,0.15);color:#f6be39;font-family:'Playfair Display',serif">F</div>
           <div>
@@ -493,8 +488,8 @@ footer a{transition:color .2s ease}
       <h2 class="text-glow" style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,64px);font-weight:700;color:#e3e3de">Yolculuğunuza Bugün Başlayın</h2>
       <p class="font-body-lg text-body-lg" style="color:#d3c5ae">Ayet Kilidi ile dijital dünyanın gürültüsünden uzaklaşın ve her gün ruhunuza dokunacak bir ayetle güne huzurla başlayın.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-        <button onclick="showToast('Uygulama')" class="cta-primary font-bold px-10 py-4 rounded-xl font-label-caps text-label-caps" style="color:#0a1a14">HEMEN İNDİR</button>
-        <a href="#pricing" class="font-bold px-10 py-4 rounded-xl font-label-caps text-label-caps" style="border:1px solid #f6be39;color:#f6be39">PLANLARI İNCELE</a>
+        <a href="indir.html" class="cta-primary font-bold px-10 py-4 rounded-xl font-label-caps text-label-caps inline-block" style="color:#0a1a14;text-decoration:none">HEMEN İNDİR</a>
+        <a href="#okuma" class="font-bold px-10 py-4 rounded-xl font-label-caps text-label-caps inline-block" style="border:1px solid #f6be39;color:#f6be39;text-decoration:none">ÖZELLİKLERİ İNCELE</a>
       </div>
     </div>
   </div>
@@ -511,16 +506,17 @@ footer a{transition:color .2s ease}
     <div class="space-y-4">
       <h4 class="font-label-caps text-label-caps" style="color:#f6be39">KURUMSAL</h4>
       <nav class="flex flex-col gap-2">
-        <a class="font-body-md" href="#" style="color:#d3c5ae">Hakkımızda</a>
+        <a class="font-body-md" href="index.html" style="color:#d3c5ae">Hakkımızda</a>
+        <a class="font-body-md" href="#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
+        <a class="font-body-md" href="indir.html" style="color:#d3c5ae">Uygulamayı İndir</a>
         <a class="font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
-        <a class="font-body-md" href="#pricing" style="color:#d3c5ae">Abonelik Planları</a>
       </nav>
     </div>
     <div class="space-y-4">
       <h4 class="font-label-caps text-label-caps" style="color:#f6be39">YASAL</h4>
       <nav class="flex flex-col gap-2">
         <a class="font-body-md hover:text-primary" href="gizlilik-politikasi.html" style="color:#d3c5ae">Gizlilik Politikası</a>
-        <a class="font-body-md" href="#" style="color:#d3c5ae">Kullanım Şartları</a>
+        <a class="font-body-md" href="gizlilik-politikasi.html" style="color:#d3c5ae">Kullanım Şartları</a>
         <a class="font-body-md" href="gizlilik-politikasi.html" style="color:#d3c5ae">KVKK Aydınlatma Metni</a>
       </nav>
     </div>
@@ -539,11 +535,6 @@ footer a{transition:color .2s ease}
     </div>
   </div>
 </footer>
-
-<div id="toast" class="toast fixed bottom-8 left-1/2 glass-card px-6 py-4 rounded-xl flex items-center gap-3 z-50" style="border-color:rgba(212,160,23,0.3)">
-  <span class="material-symbols-outlined" style="color:#f6be39;font-variation-settings:'FILL' 1">check_circle</span>
-  <span id="toast-msg" class="font-body-md" style="color:#e3e3de"></span>
-</div>
 
 <script>
 const pc=document.getElementById('particle-container');
@@ -593,8 +584,6 @@ for(let i=1;i<=30;i++){const c=document.createElement('div');const done=i<=18,cu
 
 const wObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){setTimeout(()=>document.getElementById('weekly-progress').style.width='80%',300);wObs.disconnect()}})},{threshold:.5});
 wObs.observe(document.getElementById('weekly-progress'));
-
-function showToast(p){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent='Abonelik ve satın alma işlemleri doğrudan mobil uygulamamız içerisinden yapılmaktadır.';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
 
 document.querySelectorAll('.glass-card, .glass-card-popular').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;if(!c.classList.contains('glass-card-popular'))c.style.background=`radial-gradient(circle at ${x*100}% ${y*100}%, rgba(246,190,57,0.07), rgba(20,43,34,0.6))`;c.style.backdropFilter='blur(20px)'});c.addEventListener('mouseleave',()=>{if(!c.classList.contains('glass-card-popular'))c.style.background='rgba(20,43,34,0.6)'})});
 </script>

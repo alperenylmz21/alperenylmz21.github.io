@@ -89,12 +89,12 @@ footer a{transition:color .2s ease}
     <div class="hidden md:flex items-center gap-8">
       <a class="font-body-md transition-colors duration-300" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
       <a class="font-body-md transition-colors duration-300" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
       <a class="font-body-md transition-colors duration-300" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
-      <a class="font-body-md transition-colors duration-300" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
       <a class="font-body-md" href="iletisim.html" style="color:#f6be39;font-weight:700;border-bottom:2px solid #f6be39;padding-bottom:2px">İletişim</a>
     </div>
     <div class="flex items-center gap-4">
-      <button onclick="showToast('Uygulama')" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif">İNDİR</button>
+      <a href="indir.html" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif;text-decoration:none">İNDİR</a>
       <button id="mobile-toggle" class="md:hidden p-1" style="color:#e3e3de">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
@@ -103,8 +103,9 @@ footer a{transition:color .2s ease}
   <div id="mobile-menu" class="md:hidden px-6 py-4 flex flex-col gap-4">
     <a class="py-2 font-body-md" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
     <a class="py-2 font-body-md" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+    <a class="py-2 font-body-md" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
     <a class="py-2 font-body-md" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
-    <a class="py-2 font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
+    <a class="py-2 font-body-md" href="indir.html" style="color:#f6be39;font-weight:700">Uygulamayı İndir</a>
     <a class="font-bold py-2 font-body-md" href="iletisim.html" style="color:#f6be39">İletişim</a>
   </div>
 </nav>
@@ -116,7 +117,7 @@ footer a{transition:color .2s ease}
         <span class="font-label-caps text-label-caps tracking-[0.2em] mb-4 block" style="color:#f6be39;text-transform:uppercase">Mukaddesat ile Bağ Kurun</span>
         <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:#e3e3de;line-height:1.15;margin-bottom:16px">Bize Ulaşın</h1>
         <p class="font-body-lg text-body-lg max-w-md" style="color:#d3c5ae">
-          Sorularınız, geri bildirimleriniz veya abonelik/teknik destek ihtiyaçlarınız için yanınızdayız. Bizimle her an iletişime geçebilirsiniz.
+          Sorularınız, geri bildirimleriniz veya teknik destek ihtiyaçlarınız için yanınızdayız. Bizimle her an iletişime geçebilirsiniz.
         </p>
       </header>
 
@@ -167,11 +168,11 @@ footer a{transition:color .2s ease}
         <div class="flex flex-col gap-3" id="faq-list">
           <div class="faq-item glass-surface rounded-xl overflow-hidden">
             <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center" onclick="toggleFaq(this)">
-              <span class="font-body-md font-bold" style="color:#e3e3de">Abonelik ücretli mi?</span>
+              <span class="font-body-md font-bold" style="color:#e3e3de">Uygulama ücretli mi?</span>
               <span class="material-symbols-outlined transition-transform duration-300" style="color:#f6be39">expand_more</span>
             </button>
             <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
-              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">Evet, Ayet Kilidi premium bir maneviyat asistanıdır. Aylık (₺24.99), Yıllık (₺149.99) ve Ömür Boyu (₺399.99) olmak üzere 3 farklı avantajlı abonelik seçeneğimiz bulunmaktadır.</p>
+              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">Hayır, Ayet Kilidi tamamen ücretsizdir! Tüm Kuran-ı Kerim, 114 sure ve ayet okuma modları, hatim takibi, mealler ve sesli tilavetler herhangi bir ödeme yapmaksızın kullanılabilir.</p>
             </div>
           </div>
           <div class="faq-item glass-surface rounded-xl overflow-hidden">
@@ -180,16 +181,16 @@ footer a{transition:color .2s ease}
               <span class="material-symbols-outlined transition-transform duration-300" style="color:#f6be39">expand_more</span>
             </button>
             <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
-              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">iOS App Store ve Android Google Play Mağazaları üzerinden indirilebilir. Tek bir abonelik ile tüm cihazlarınızda kullanabilirsiniz.</p>
+              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">iOS App Store ve Android Google Play Mağazaları üzerinden ücretsiz indirilebilir.</p>
             </div>
           </div>
           <div class="faq-item glass-surface rounded-xl overflow-hidden">
             <button class="faq-btn w-full text-left px-5 py-4 flex justify-between items-center" onclick="toggleFaq(this)">
-              <span class="font-body-md font-bold" style="color:#e3e3de">İptal işlemi nasıl yapılır?</span>
+              <span class="font-body-md font-bold" style="color:#e3e3de">Abonelik veya taahhüt gerekiyor mu?</span>
               <span class="material-symbols-outlined transition-transform duration-300" style="color:#f6be39">expand_more</span>
             </button>
             <div class="faq-answer" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
-              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">Aboneliğinizi dilediğiniz an Apple App Store veya Google Play hesap ayarlarınızdan taahhütsüz ve tek tıkla iptal edebilirsiniz.</p>
+              <p class="px-5 pb-4 font-body-md" style="color:#d3c5ae">Hayır, Ayet Kilidi'ni kullanmak için herhangi bir abonelik veya taahhüt gerekmez. Dilediğiniz an mağazalardan ücretsiz indirebilirsiniz.</p>
             </div>
           </div>
         </div>
@@ -220,7 +221,7 @@ footer a{transition:color .2s ease}
             <label class="form-label" for="category">Konu Kategorisi</label>
             <select class="input-field" id="category" name="category">
               <option value="">Kategori seçin...</option>
-              <option value="abonelik">Abonelik & Ödeme</option>
+              <option value="okuma">Ayet & Sure Okuma</option>
               <option value="teknik">Teknik Destek</option>
               <option value="oneri">Özellik Önerisi</option>
               <option value="hata">Hata Bildirimi</option>
@@ -267,12 +268,13 @@ footer a{transition:color .2s ease}
     <div class="flex flex-col gap-3">
       <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Kurumsal</span>
       <a class="font-body-md" href="index.html" style="color:#d3c5ae">Hakkımızda</a>
-      <a class="font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik Planları</a>
+      <a class="font-body-md" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
+      <a class="font-body-md" href="indir.html" style="color:#d3c5ae">İndir</a>
     </div>
     <div class="flex flex-col gap-3">
       <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Destek</span>
       <a class="font-body-md hover:text-primary" href="gizlilik-politikasi.html" style="color:#d3c5ae">Gizlilik Politikası</a>
-      <a class="font-body-md" href="#" style="color:#d3c5ae">Sıkça Sorulan Sorular</a>
+      <a class="font-body-md" href="iletisim.html" style="color:#f6be39;font-weight:700">İletişim</a>
     </div>
     <div class="flex flex-col gap-3">
       <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Sosyal Medya</span>

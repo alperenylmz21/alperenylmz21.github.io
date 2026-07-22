@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="dark" lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Ayet Kilidi - Uygulamayı Ücretsiz İndir. iOS App Store ve Android Google Play Store bağlantıları."/>
+<title>Uygulamayı İndir | Ayet Kilidi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#f6be39","primary-container":"#d4a017","on-primary":"#402d00","background":"#0A1A14","on-surface":"#e3e3de","on-surface-variant":"#d3c5ae","outline-variant":"#4f4634"},spacing:{"container-max":"1200px","stack-md":"16px","gutter":"24px","stack-lg":"32px","margin-x":"clamp(1rem, 5vw, 4rem)","stack-sm":"8px","section-gap":"clamp(4rem, 10vw, 8rem)"},fontFamily:{"display-lg":["Playfair Display"],"headline-md":["Playfair Display"],"headline-sm":["Playfair Display"],"body-md":["Manrope"],"body-lg":["Manrope"],"label-caps":["Manrope"]},fontSize:{"label-caps":["12px",{"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg-mobile":["32px",{"lineHeight":"40px","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"40px","fontWeight":"600"}],"headline-sm":["24px",{"lineHeight":"32px","fontWeight":"600"}]}}}}
+</script>
+<style>
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{background-color:#0A1A14;color:#e3e3de;overflow-x:hidden;font-family:'Manrope',sans-serif}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+.glass-card{background:rgba(20,43,34,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,160,23,0.15)}
+.glass-card-popular{background:rgba(30,60,45,0.85);backdrop-filter:blur(20px);border:2px solid #f6be39;box-shadow:0 0 35px rgba(246,190,57,0.25)}
+.primary-btn-glow{box-shadow:0 8px 24px rgba(212,160,23,0.25);transition:all .3s ease}
+.primary-btn-glow:hover{box-shadow:0 12px 32px rgba(212,160,23,0.45);transform:translateY(-2px)}
+.particle{position:fixed;background:rgba(246,190,57,0.25);border-radius:50%;pointer-events:none;animation:float-up 20s infinite linear}
+@keyframes float-up{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:.8}90%{opacity:.8}100%{transform:translateY(-100vh) rotate(360deg);opacity:0}}
+nav.scrolled{background:rgba(10,26,20,0.95)!important;border-bottom-color:rgba(212,160,23,0.2)!important}
+#mobile-menu{display:none;background:rgba(10,26,20,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,160,23,0.1)}
+#mobile-menu.open{display:block}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#f6be39,#d4a017);z-index:9999;width:0%;transition:width .1s linear}
+footer a{transition:color .2s ease}
+.download-badge{transition:all .3s ease}
+.download-badge:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(212,160,23,0.3)}
+.pulse-ring{position:relative}
+.pulse-ring::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(246,190,57,0.4);animation:pulse-expand 2s infinite ease-out}
+@keyframes pulse-expand{0%{transform:scale(0.9);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.cta-primary{background:linear-gradient(135deg,#f6be39,#d4a017);transition:all .3s ease}
+.cta-primary:hover{background:linear-gradient(135deg,#ffd054,#f6be39);transform:translateY(-2px);box-shadow:0 16px 40px rgba(212,160,23,0.4)}
+</style>
+</head>
+<body class="font-body-md text-body-md">
+<div id="scroll-progress"></div>
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0" id="particle-container"></div>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-white/5" style="background:transparent;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)">
+  <div class="flex justify-between items-center px-margin-x py-stack-md max-w-container-max mx-auto">
+    <a href="index.html" style="font-family:'Playfair Display',serif;font-weight:700;font-size:24px;color:#f6be39;text-decoration:none">Ayet Kilidi</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-body-md transition-colors duration-300" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
+      <a class="font-body-md transition-colors duration-300" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="indir.html" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif;text-decoration:none">İNDİR</a>
+      <button id="mobile-toggle" class="md:hidden p-1" style="color:#e3e3de">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden px-6 py-4 flex flex-col gap-4">
+    <a class="py-2 font-body-md" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
+    <a class="py-2 font-body-md" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+    <a class="py-2 font-body-md" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
+    <a class="py-2 font-body-md" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
+    <a class="py-2 font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
+  </div>
+</nav>
+
+<main class="relative z-10 pt-36 pb-section-gap px-margin-x max-w-container-max mx-auto space-y-12">
+
+  <!-- AUTO REDIRECT / HERO STATUS BANNER -->
+  <div class="text-center max-w-3xl mx-auto space-y-6 reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold font-label-caps" style="background:rgba(246,190,57,0.12);border:1px solid rgba(246,190,57,0.3);color:#f6be39">
+      <span class="material-symbols-outlined text-sm">install_mobile</span>
+      <span id="detected-device-text">Cihazınız Tespit Ediliyor...</span>
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:700;color:#e3e3de;line-height:1.15">
+      Ayet Kilidi'ni <span style="color:#f6be39">Tek Tuşla İndirin</span>
+    </h1>
+    <p style="color:#d3c5ae;font-size:18px;line-height:1.6" class="max-w-xl mx-auto">
+      Kutsal metinler, ayet ve sure okuma modları ile maneviyat cebinizde. Tamamen ücretsiz. Uygulama mağazanıza otomatik yönlendiriliyorsunuz.
+    </p>
+
+    <!-- AUTO REDIRECT STATUS CARD -->
+    <div id="redirect-status-box" class="glass-card-popular p-6 rounded-2xl max-w-lg mx-auto flex flex-col items-center gap-4 text-center">
+      <div class="w-12 h-12 rounded-full flex items-center justify-center pulse-ring" style="background:rgba(246,190,57,0.2);color:#f6be39">
+        <span class="material-symbols-outlined text-2xl animate-spin" id="redirect-spinner">progress_activity</span>
+      </div>
+      <div>
+        <div id="redirect-title" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#e3e3de">
+          Mağazaya Yönlendiriliyorsunuz...
+        </div>
+        <p id="redirect-subtitle" class="text-sm mt-1" style="color:#d3c5ae">
+          3 saniye içinde cihazınıza uygun uygulama mağazasına aktarılacaksınız.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3 justify-center w-full pt-2">
+        <a id="direct-redirect-btn" href="#" class="cta-primary px-8 py-3.5 rounded-xl font-bold font-label-caps text-xs tracking-wider flex items-center gap-2" style="color:#0a1a14;text-decoration:none">
+          <span>HEMEN İNDİR</span>
+          <span class="material-symbols-outlined text-sm">open_in_new</span>
+        </a>
+        <button id="cancel-redirect-btn" onclick="cancelRedirect()" class="px-5 py-3.5 rounded-xl font-bold font-label-caps text-xs tracking-wider" style="border:1px solid rgba(212,160,23,0.3);color:#d3c5ae;background:rgba(10,26,20,0.5)">
+          YÖNLENDİRMEYİ DURDUR
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORE CHOICE BADGES SECTION -->
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 reveal">
+
+    <!-- APP STORE CARD -->
+    <div id="card-appstore" class="glass-card p-8 rounded-2xl flex flex-col justify-between items-center text-center relative download-badge" style="border-color:rgba(212,160,23,0.2)">
+      <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(246,190,57,0.1);color:#f6be39">
+        <svg class="w-10 h-10 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/></svg>
+      </div>
+      <div>
+        <span class="text-xs uppercase tracking-widest font-label-caps block mb-1" style="color:rgba(211,197,174,0.6)">Apple Cihazları İçin</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#e3e3de;margin-bottom:8px">App Store</h2>
+        <p class="text-sm mb-6" style="color:#d3c5ae">iPhone, iPad ve Apple Watch cihazlarınız için tam uyumlu versiyon.</p>
+      </div>
+      <a href="https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr" target="_blank" class="w-full py-4 rounded-xl font-bold font-label-caps flex items-center justify-center gap-3" style="background:#f6be39;color:#0a1a14;text-decoration:none;box-shadow:0 8px 24px rgba(246,190,57,0.25)">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/></svg>
+        <span>App Store'dan Ücretsiz İndir</span>
+      </a>
+    </div>
+
+    <!-- GOOGLE PLAY CARD -->
+    <div id="card-playstore" class="glass-card p-8 rounded-2xl flex flex-col justify-between items-center text-center relative download-badge" style="border-color:rgba(212,160,23,0.2)">
+      <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(246,190,57,0.1);color:#f6be39">
+        <svg class="w-10 h-10" viewBox="0 0 512 512"><path fill="#00e676" d="M49.6 20.3C43.5 24 40 30.5 40 38.6v434.8c0 8.1 3.5 14.6 9.6 18.3l227.1-236.4L49.6 20.3z"/><path fill="#ff3d00" d="M374.8 190.2L276.7 255.3 49.6 20.3c6.9-4.1 15.4-4.8 23.3-.6l301.9 170.5z"/><path fill="#ffc107" d="M374.8 321.8L72.9 492.3c-7.9 4.2-16.4 3.5-23.3-.6l227.1-235 98.1 65.1z"/><path fill="#29b6f6" d="M462.4 240.2L374.8 190.2l-98.1 65.1 98.1 65.1 87.6-50c14.2-8.1 22.8-23.2 22.8-39.6-.1-16.5-8.7-31.5-22.8-39.6z"/></svg>
+      </div>
+      <div>
+        <span class="text-xs uppercase tracking-widest font-label-caps block mb-1" style="color:rgba(211,197,174,0.6)">Android Cihazları İçin</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#e3e3de;margin-bottom:8px">Google Play</h2>
+        <p class="text-sm mb-6" style="color:#d3c5ae">Tüm Android telefon ve tabletler için optimize edilmiş sürüm.</p>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi" target="_blank" class="w-full py-4 rounded-xl font-bold font-label-caps flex items-center justify-center gap-3" style="background:#f6be39;color:#0a1a14;text-decoration:none;box-shadow:0 8px 24px rgba(246,190,57,0.25)">
+        <svg class="w-5 h-5" viewBox="0 0 512 512"><path fill="#0a1a14" d="M49.6 20.3C43.5 24 40 30.5 40 38.6v434.8c0 8.1 3.5 14.6 9.6 18.3l227.1-236.4L49.6 20.3z"/><path fill="#0a1a14" d="M374.8 190.2L276.7 255.3 49.6 20.3c6.9-4.1 15.4-4.8 23.3-.6l301.9 170.5z"/><path fill="#0a1a14" d="M374.8 321.8L72.9 492.3c-7.9 4.2-16.4 3.5-23.3-.6l227.1-235 98.1 65.1z"/><path fill="#0a1a14" d="M462.4 240.2L374.8 190.2l-98.1 65.1 98.1 65.1 87.6-50c14.2-8.1 22.8-23.2 22.8-39.6-.1-16.5-8.7-31.5-22.8-39.6z"/></svg>
+        <span>Google Play'den Ücretsiz İndir</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- QR CODE / MOBILE SCAN HELPER -->
+  <div class="max-w-4xl mx-auto glass-card p-8 rounded-2xl reveal text-center flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="text-left space-y-2 max-w-md">
+      <div class="flex items-center gap-2" style="color:#f6be39 font-weight:700">
+        <span class="material-symbols-outlined">qr_code_scanner</span>
+        <span class="text-xs uppercase tracking-widest font-label-caps">Masaüstünde misiniz?</span>
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#e3e3de">Telefon Kameranız ile Tarafınızdan Tarayın</h3>
+      <p class="text-sm" style="color:#d3c5ae">Kameranızı tutarak bu sayfayı telefonunuzda açabilir, cihazınıza özel mağazaya saniyeler içinde ulaşabilirsiniz.</p>
+    </div>
+    <div class="p-4 rounded-xl flex flex-col items-center gap-2" style="background:#ffffff;border:2px solid #f6be39">
+      <!-- QR SVG rendering direct link to ayetkilidi.app/indir.html -->
+      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="120" height="120" fill="white"/>
+        <!-- Top Left Finder Pattern -->
+        <rect x="10" y="10" width="35" height="35" fill="#0A1A14"/>
+        <rect x="15" y="15" width="25" height="25" fill="white"/>
+        <rect x="20" y="20" width="15" height="15" fill="#0A1A14"/>
+
+        <!-- Top Right Finder Pattern -->
+        <rect x="75" y="10" width="35" height="35" fill="#0A1A14"/>
+        <rect x="80" y="15" width="25" height="25" fill="white"/>
+        <rect x="85" y="20" width="15" height="15" fill="#0A1A14"/>
+
+        <!-- Bottom Left Finder Pattern -->
+        <rect x="10" y="75" width="35" height="35" fill="#0A1A14"/>
+        <rect x="15" y="80" width="25" height="25" fill="white"/>
+        <rect x="20" y="85" width="15" height="15" fill="#0A1A14"/>
+
+        <!-- Mock QR Data Dots -->
+        <rect x="50" y="15" width="10" height="10" fill="#0A1A14"/>
+        <rect x="60" y="25" width="10" height="10" fill="#0A1A14"/>
+        <rect x="50" y="35" width="10" height="10" fill="#0A1A14"/>
+        <rect x="15" y="50" width="10" height="10" fill="#0A1A14"/>
+        <rect x="30" y="60" width="10" height="10" fill="#0A1A14"/>
+        <rect x="50" y="50" width="20" height="20" fill="#d4a017"/>
+        <rect x="75" y="50" width="10" height="10" fill="#0A1A14"/>
+        <rect x="95" y="60" width="15" height="15" fill="#0A1A14"/>
+        <rect x="50" y="80" width="15" height="10" fill="#0A1A14"/>
+        <rect x="75" y="80" width="10" height="20" fill="#0A1A14"/>
+        <rect x="90" y="90" width="15" height="15" fill="#0A1A14"/>
+      </svg>
+      <span style="font-size:10px;font-weight:700;color:#0a1a14;font-family:'Manrope',sans-serif">ayetkilidi.app/indir.html</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full px-margin-x py-section-gap flex flex-col md:flex-row justify-between items-start gap-stack-lg border-t relative z-10" style="background:#0d0f0c;border-top-color:rgba(79,70,52,0.2)">
+  <div class="flex flex-col gap-4">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#f6be39">Ayet Kilidi</div>
+    <p class="font-body-md" style="color:#d3c5ae">&copy; 2024 Ayet Kilidi. Dijital Mukaddesat.</p>
+  </div>
+  <div class="flex flex-wrap gap-x-12 gap-y-6">
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Kurumsal</span>
+      <a class="font-body-md" href="index.html" style="color:#d3c5ae">Hakkımızda</a>
+      <a class="font-body-md" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
+      <a class="font-body-md" href="indir.html" style="color:#d3c5ae">İndir</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Destek</span>
+      <a class="font-body-md hover:text-primary" href="gizlilik-politikasi.html" style="color:#d3c5ae">Gizlilik Politikası</a>
+      <a class="font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Sosyal Medya</span>
+      <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="https://instagram.com/ayetkilidi" target="_blank" style="color:#d3c5ae">
+        <span style="color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
+        <span>Instagram (@ayetkilidi)</span>
+      </a>
+      <a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="https://tiktok.com/@ayetkilidi" target="_blank" style="color:#d3c5ae">
+        <span style="color:#f6be39"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.31 1.56-1.3 2.57.01 1.05.58 2.05 1.48 2.58.97.58 2.22.6 3.22.11.85-.41 1.47-1.22 1.64-2.14.05-1.25.04-2.5.04-3.75V.02z"/></svg></span>
+        <span>TikTok (@ayetkilidi)</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Floating particles
+const pc=document.getElementById('particle-container');
+for(let i=0;i<25;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*3+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:-10px;animation-delay:${Math.random()*20}s;animation-duration:${Math.random()*15+10}s;opacity:${Math.random()*0.35+0.1}`;pc.appendChild(p)}
+
+// Scroll navbar effect
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  const d=document.documentElement;document.getElementById('scroll-progress').style.width=((window.scrollY/(d.scrollHeight-d.clientHeight))*100)+'%';
+});
+
+// Mobile menu toggle
+const tog=document.getElementById('mobile-toggle'),mm=document.getElementById('mobile-menu'),ic=document.getElementById('menu-icon');
+tog.addEventListener('click',()=>{mm.classList.toggle('open');ic.textContent=mm.classList.contains('open')?'close':'menu'});
+
+// Intersection observer for animations
+const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// STORE CONSTANTS
+const APP_STORE_URL = "https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi";
+
+let timerId = null;
+let countdownSeconds = 2;
+
+function detectOS() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /android/i.test(userAgent);
+  if (isIOS) return 'ios';
+  if (isAndroid) return 'android';
+  return 'other';
+}
+
+function handleSmartRedirect() {
+  const os = detectOS();
+  const urlParams = new URLSearchParams(window.location.search);
+  const noAuto = urlParams.get('noauto') === '1' || urlParams.get('redirect') === 'false';
+
+  const detectedText = document.getElementById('detected-device-text');
+  const directBtn = document.getElementById('direct-redirect-btn');
+  const cardAppStore = document.getElementById('card-appstore');
+  const cardPlayStore = document.getElementById('card-playstore');
+
+  let targetUrl = PLAY_STORE_URL;
+  let targetStoreName = "Google Play Store";
+
+  if (os === 'ios') {
+    targetUrl = APP_STORE_URL;
+    targetStoreName = "Apple App Store";
+    detectedText.textContent = "iOS Cihazı Tespiti Yapıldı (iPhone / iPad)";
+    cardAppStore.classList.add('glass-card-popular');
+  } else if (os === 'android') {
+    targetUrl = PLAY_STORE_URL;
+    targetStoreName = "Google Play Store";
+    detectedText.textContent = "Android Cihazı Tespiti Yapıldı";
+    cardPlayStore.classList.add('glass-card-popular');
+  } else {
+    detectedText.textContent = "Masaüstü / Diğer Cihaz Tespiti";
+    targetUrl = PLAY_STORE_URL; // Default fallback link
+  }
+
+  directBtn.href = targetUrl;
+
+  if (noAuto) {
+    cancelRedirect();
+    return;
+  }
+
+  // Countdown and Auto-Redirect
+  let currentCountdown = countdownSeconds;
+  const subtitleEl = document.getElementById('redirect-subtitle');
+  
+  const tick = () => {
+    subtitleEl.textContent = `${currentCountdown} saniye içinde ${targetStoreName} mağazasına aktarılıyorsunuz...`;
+    if (currentCountdown <= 0) {
+      window.location.href = targetUrl;
+    } else {
+      currentCountdown--;
+      timerId = setTimeout(tick, 1000);
+    }
+  };
+
+  tick();
+}
+
+function cancelRedirect() {
+  if (timerId) clearTimeout(timerId);
+  const statusBox = document.getElementById('redirect-status-box');
+  const spinner = document.getElementById('redirect-spinner');
+  const titleEl = document.getElementById('redirect-title');
+  const subtitleEl = document.getElementById('redirect-subtitle');
+  const cancelBtn = document.getElementById('cancel-redirect-btn');
+
+  spinner.textContent = "touch_app";
+  spinner.classList.remove('animate-spin');
+  titleEl.textContent = "Mağaza Seçiminizi Yapın";
+  subtitleEl.textContent = "Aşağıdaki butonlardan cihazınıza uygun uygulama mağazasına geçebilirsiniz.";
+  cancelBtn.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', handleSmartRedirect);
+</script>
+</body>
+</html>

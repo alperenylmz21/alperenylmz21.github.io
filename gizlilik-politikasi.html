@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="Ayet Kilidi - Gizlilik Politikası ve KVKK Aydınlatma Metni."/>
+<meta name="description" content="Ayet Kilidi - Gizlilik Politikası, AdMob Reklamları, Firebase Analytics, Crashlytics ve KVKK Aydınlatma Metni."/>
 <title>Gizlilik Politikası | Ayet Kilidi</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
@@ -44,12 +44,12 @@ footer a{transition:color .2s ease}
     <div class="hidden md:flex items-center gap-8">
       <a class="font-body-md transition-colors duration-300" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
       <a class="font-body-md transition-colors duration-300" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+      <a class="font-body-md transition-colors duration-300" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
       <a class="font-body-md transition-colors duration-300" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
-      <a class="font-body-md transition-colors duration-300" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
       <a class="font-body-md transition-colors duration-300" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
     </div>
     <div class="flex items-center gap-4">
-      <button onclick="showToast('Uygulama')" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif">İNDİR</button>
+      <a href="indir.html" class="active:scale-95 transition-all hover:scale-105 rounded-full font-bold px-6 py-2 primary-btn-glow" style="background:#d4a017;color:#0a1a14;font-size:12px;letter-spacing:0.1em;font-family:'Manrope',sans-serif;text-decoration:none">İNDİR</a>
       <button id="mobile-toggle" class="md:hidden p-1" style="color:#e3e3de">
         <span class="material-symbols-outlined" id="menu-icon">menu</span>
       </button>
@@ -58,8 +58,8 @@ footer a{transition:color .2s ease}
   <div id="mobile-menu" class="md:hidden px-6 py-4 flex flex-col gap-4">
     <a class="py-2 font-body-md" href="index.html" style="color:#d3c5ae">Ana Sayfa</a>
     <a class="py-2 font-body-md" href="index.html#features" style="color:#d3c5ae">Özellikler</a>
+    <a class="py-2 font-body-md" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
     <a class="py-2 font-body-md" href="index.html#hatim" style="color:#d3c5ae">Hatim</a>
-    <a class="py-2 font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik</a>
     <a class="py-2 font-body-md" href="iletisim.html" style="color:#d3c5ae">İletişim</a>
   </div>
 </nav>
@@ -68,7 +68,7 @@ footer a{transition:color .2s ease}
   <div class="text-center max-w-2xl mx-auto reveal">
     <span class="font-label-caps text-label-caps tracking-[0.2em] mb-3 block" style="color:#f6be39;text-transform:uppercase">YASAL GİZLİLİK VE ŞARTLAR</span>
     <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:#e3e3de">Gizlilik Politikası</h1>
-    <p style="color:#d3c5ae;margin-top:12px">Son Güncelleme: 4 Temmuz 2026</p>
+    <p style="color:#d3c5ae;margin-top:12px">Son Güncelleme: 22 Temmuz 2026</p>
   </div>
 
   <div class="max-w-4xl mx-auto space-y-6 reveal">
@@ -76,52 +76,78 @@ footer a{transition:color .2s ease}
     <div class="privacy-card">
       <h2><span class="material-symbols-outlined">shield</span> 1. Genel Bakış ve Gizlilik İlkesi</h2>
       <p>
-        Ayet Kilidi mobil uygulaması ("Uygulama"), kullanıcılarımızın kişisel gizliliğine ve manevi deneyimlerinin kutsallığına en üst düzeyde saygı duyar. Uygulamamız, mahremiyet ilkesini temel alarak tasarlanmıştır. Bu politikada kullanıcı verilerinin nasıl ele alındığı açıklanmaktadır.
+        Ayet Kilidi mobil uygulaması ("Uygulama"), kullanıcılarımızın kişisel gizliliğine ve manevi deneyimlerinin kutsallığına en üst düzeyde saygı duyar. Uygulamamız, kullanıcı mahremiyetini temel ilke edinmiştir. İşbu Gizlilik Politikası, uygulama içerisinde sunulan hizmetler, toplanan teknik veriler, reklamlar ve analitik araçlarının kullanımını detaylandırmaktadır.
       </p>
     </div>
 
     <div class="privacy-card">
       <h2><span class="material-symbols-outlined">storage</span> 2. Yerel Veri Depolama (Local Storage)</h2>
       <p>
-        Ayet Kilidi içerisindeki tüm kişisel kullanım verileri <strong>tamamen cihazınızın yerel hafızasında (Local Storage)</strong> saklanır. Sunucularımıza hiçbir kişisel okuma geçmişiniz, favori ayetleriniz veya hatim ilerlemeniz iletilmez:
+        Ayet Kilidi içerisindeki kişisel okuma verileriniz ve ayarlarınız <strong>cihazınızın yerel hafızasında (Local Storage / SharedPreferences / NSUserDefaults)</strong> saklanır:
       </p>
       <ul>
-        <li>Hatim ve cüz tamamlama durumunuz cihazınızda yerel olarak kaydedilir.</li>
-        <li>Yer işaretleri, kaydettiğiniz ayetler ve kişisel notlarınız harici sunuculara aktarılmaz.</li>
-        <li>Uygulamayı sildiğiniz takdirde cihazınızdaki yerel veriler otomatik olarak temizlenir.</li>
+        <li>Hatim ve cüz tamamlama durumunuz, okuma yer işaretleriniz ve favori ayetleriniz sunucularımıza aktarılmaz.</li>
+        <li>Kişisel notlar ve uygulama içi tercihleriniz tamamen cihaz kontrolünüzdedir.</li>
+        <li>Uygulamayı kaldırdığınızda cihazınızdaki yerel okuma verileri otomatik olarak silinir.</li>
       </ul>
     </div>
 
     <div class="privacy-card">
-      <h2><span class="material-symbols-outlined">notifications_active</span> 3. Bildirim Hizmetleri</h2>
+      <h2><span class="material-symbols-outlined">campaign</span> 3. Reklam Hizmetleri (Google AdMob)</h2>
       <p>
-        Günlük ayet hatırlatıcıları ve ibadet zamanı bildirimleri <strong>yerel bildirim (Local Notification)</strong> mimarisi ile çalışır. Bildirim saatleriniz ve tercihleriniz harici bir sunucu tarafından takip edilmez veya tetiklenmez; tüm işlemler doğrudan cihazınızın işletim sistemi tarafından yürütülür.
-      </p>
-    </div>
-
-    <div class="privacy-card">
-      <h2><span class="material-symbols-outlined">credit_card</span> 4. Abonelikler ve Ödeme Güvenliği</h2>
-      <p>
-        Ayet Kilidi premium abonelik hizmetleri (Aylık ₺24.99, Yıllık ₺149.99, Ömür Boyu ₺399.99) doğrudan resmi uygulama mağazaları olan <strong>Apple App Store (In-App Purchase)</strong> ve <strong>Google Play Store (In-App Billing)</strong> altyapısı üzerinden gerçekleştirilir:
+        Uygulamamızın ücretsiz sürümünün sürdürülebilirliğini sağlamak ve geliştirmeleri desteklemek amacıyla Google AdMob reklam altyapısı kullanılmaktadır:
       </p>
       <ul>
-        <li>Kredi kartı, banka bilgileri veya ödeme yöntemleriniz tarafımızca asla görülmez, toplanmaz veya saklanmaz.</li>
-        <li>Tüm finansal işlemler Apple ve Google'ın küresel güvenlik standartlarına tabidir.</li>
-        <li>Abonelik yönetimi ve iptal işlemleri mağaza hesap ayarlarınız üzerinden tek tıkla yapılabilir.</li>
+        <li>Google AdMob, kullanıcılara uygun ve kaliteli reklamlar sunabilmek adına anonim cihaz tanımlayıcıları (Android Advertising ID / IDFA) ve genel cihaz bilgisi kullanabilir.</li>
+        <li>Kullanıcılar cihaz ayarlarından (Google Ayarları veya iOS Gizlilik ayarları) kişiselleştirilmiş reklam tercihlerini değiştirebilir veya sınırlayabilir.</li>
+        <li>Kutsal içerikler ve ibadet modları esnasında manevi atmosferi bozmayacak zarif ve sınırlı reklam yerleşimleri uygulanır.</li>
       </ul>
     </div>
 
     <div class="privacy-card">
-      <h2><span class="material-symbols-outlined">lock</span> 5. KVKK ve 3. Taraf Paylaşımı</h2>
+      <h2><span class="material-symbols-outlined">analytics</span> 4. Analiz ve Performans Hizmetleri (Firebase Analytics)</h2>
       <p>
-        6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve GDPR standartlarına uygun olarak; kullanıcı verileriniz hiçbir şekilde üçüncü kişilere satılmaz, kiralanmaz veya pazarlama amacıyla paylaşılmaz. Uygulamamızda kişisel takip gerçekleştiren reklam veya izleme kütüphaneleri yer almaz.
+        Uygulamamızın performansını artırmak, kullanıcı deneyimini iyileştirmek ve popüler özellikleri analiz etmek amacıyla <strong>Google Firebase Analytics</strong> kullanılmaktadır:
+      </p>
+      <ul>
+        <li>Firebase Analytics, uygulama içi oturum süresi, ekran geçişleri, tıklama oranları ve cihaz modeli gibi tamamen anonimleştirilmiş kullanım istatistiklerini toplar.</li>
+        <li>Toplanan analitik veriler kişisel kimlik bilgilerinizle eşleştirilmez veya din/inanç tercihleri şeklinde saklanmaz.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">bug_report</span> 5. Çökme Raporları ve Hata Tespiti (Firebase Crashlytics)</h2>
+      <p>
+        Uygulamada yaşanabilecek olası teknik aksaklıkları ve çökmeleri tespit edip hızlıca gidermek amacıyla <strong>Google Firebase Crashlytics</strong> entegrasyonu bulunmaktadır:
+      </p>
+      <ul>
+        <li>Bir çökme meydana geldiğinde; işletim sistemi sürümü, cihaz modeli, bellek durumu ve hatanın gerçekleştiği kod satırı (stack trace) anonim olarak raporlanır.</li>
+        <li>Bu teknik veriler yalnızca uygulamanın kararlılığını ve güvenliğini artırmak amacıyla geliştirici ekibimiz tarafından incelenir.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">volunteer_activism</span> 6. Ücretsiz Hizmet ve Kullanım İlkeleri</h2>
+      <p>
+        Ayet Kilidi mobil uygulaması tüm kullanıcılarımıza <strong>tamamen ücretsiz</strong> olarak sunulmaktadır.
+      </p>
+      <ul>
+        <li>Uygulama içerisinde herhangi bir ücretli abonelik, uygulama içi satın alma veya ödeme alma sistemi yer almamaktadır.</li>
+        <li>Tüm ayet ve sure okuma modları, hatim takibi, mealler, tefsirler ve sesli tilavetler herhangi bir ücret ödemeksizin kullanılabilir.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-card">
+      <h2><span class="material-symbols-outlined">lock</span> 7. KVKK ve Veri Güvenliği</h2>
+      <p>
+        6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve GDPR standartlarına uygun olarak; kullanıcı verileriniz hiçbir şekilde üçüncü kişilere satılmaz, kiralanmaz veya izinsiz paylaşılmaz. Tüm veriler endüstri standardı güvenlik protokolleriyle korunur.
       </p>
     </div>
 
     <div class="privacy-card">
-      <h2><span class="material-symbols-outlined">mail</span> 6. İletişim</h2>
+      <h2><span class="material-symbols-outlined">mail</span> 8. İletişim</h2>
       <p>
-        Gizlilik politikamız veya uygulamamızla ilgili her türlü soru, görüş ve talepleriniz için <a href="mailto:destek@ayetkilidi.com" style="color:#f6be39;text-decoration:underline">destek@ayetkilidi.com</a> e-posta adresi üzerinden veya web sitemizdeki <a href="iletisim.html" style="color:#f6be39;text-decoration:underline">İletişim</a> sayfasından bize ulaşabilirsiniz.
+        Gizlilik politikamız, AdMob reklamları, Firebase hizmetleri veya uygulamamızla ilgili her türlü soru ve talepleriniz için <a href="mailto:destek@ayetkilidi.com" style="color:#f6be39;text-decoration:underline">destek@ayetkilidi.com</a> e-posta adresi üzerinden veya web sitemizdeki <a href="iletisim.html" style="color:#f6be39;text-decoration:underline">İletişim</a> sayfasından bize ulaşabilirsiniz.
       </p>
     </div>
 
@@ -138,7 +164,8 @@ footer a{transition:color .2s ease}
     <div class="flex flex-col gap-3">
       <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Kurumsal</span>
       <a class="font-body-md" href="index.html" style="color:#d3c5ae">Hakkımızda</a>
-      <a class="font-body-md" href="index.html#pricing" style="color:#d3c5ae">Abonelik Planları</a>
+      <a class="font-body-md" href="index.html#okuma" style="color:#d3c5ae">Ayet & Sure Okuma</a>
+      <a class="font-body-md" href="indir.html" style="color:#d3c5ae">İndir</a>
     </div>
     <div class="flex flex-col gap-3">
       <span class="font-label-caps text-label-caps" style="color:rgba(211,197,174,0.5);text-transform:uppercase">Destek</span>
@@ -159,11 +186,6 @@ footer a{transition:color .2s ease}
   </div>
 </footer>
 
-<div id="toast" class="toast fixed bottom-8 left-1/2 glass-card px-6 py-4 rounded-xl flex items-center gap-3 z-50" style="border-color:rgba(212,160,23,0.3)">
-  <span class="material-symbols-outlined" style="color:#f6be39;font-variation-settings:'FILL' 1">check_circle</span>
-  <span id="toast-msg" class="font-body-md" style="color:#e3e3de"></span>
-</div>
-
 <script>
 const pc=document.getElementById('particle-container');
 for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';const s=Math.random()*3+1;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:-10px;animation-delay:${Math.random()*20}s;animation-duration:${Math.random()*10+10}s;opacity:${Math.random()*0.3+0.1}`;pc.appendChild(p)}
@@ -176,12 +198,9 @@ window.addEventListener('scroll',()=>{
 
 const tog=document.getElementById('mobile-toggle'),mm=document.getElementById('mobile-menu'),ic=document.getElementById('menu-icon');
 tog.addEventListener('click',()=>{mm.classList.toggle('open');ic.textContent=mm.classList.contains('open')?'close':'menu'});
-mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');ic.textContent='menu'}));
 
 const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-function showToast(p){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent='Uygulamayı App Store veya Google Play üzerinden indirebilirsiniz.';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
 </script>
 </body>
 </html>
