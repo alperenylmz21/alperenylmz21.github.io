@@ -5,6 +5,24 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="description" content="Ayet Kilidi - Uygulamayı Ücretsiz İndir. iOS App Store ve Android Google Play Store bağlantıları."/>
 <title>Uygulamayı İndir | Ayet Kilidi</title>
+<script>
+// INSTANT AUTO-REDIRECT FOR MOBILE DEVICES (ZERO DELAY)
+(function() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /android/i.test(userAgent);
+  const urlParams = new URLSearchParams(window.location.search);
+  const noAuto = urlParams.get('noauto') === '1' || urlParams.get('redirect') === 'false';
+
+  if (!noAuto) {
+    if (isIOS) {
+      window.location.replace("https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr");
+    } else if (isAndroid) {
+      window.location.replace("https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi");
+    }
+  }
+})();
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -71,42 +89,39 @@ footer a{transition:color .2s ease}
 
 <main class="relative z-10 pt-36 pb-section-gap px-margin-x max-w-container-max mx-auto space-y-12">
 
-  <!-- AUTO REDIRECT / HERO STATUS BANNER -->
+  <!-- HERO STATUS BANNER -->
   <div class="text-center max-w-3xl mx-auto space-y-6 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold font-label-caps" style="background:rgba(246,190,57,0.12);border:1px solid rgba(246,190,57,0.3);color:#f6be39">
       <span class="material-symbols-outlined text-sm">install_mobile</span>
-      <span id="detected-device-text">Cihazınız Tespit Ediliyor...</span>
+      <span id="detected-device-text">Uygulama Mağazaları</span>
     </div>
 
     <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:700;color:#e3e3de;line-height:1.15">
       Ayet Kilidi'ni <span style="color:#f6be39">Tek Tuşla İndirin</span>
     </h1>
     <p style="color:#d3c5ae;font-size:18px;line-height:1.6" class="max-w-xl mx-auto">
-      Kutsal metinler, ayet ve sure okuma modları ile maneviyat cebinizde. Tamamen ücretsiz. Uygulama mağazanıza otomatik yönlendiriliyorsunuz.
+      Kutsal metinler, ayet ve sure okuma modları ile maneviyat cebinizde. Cihazınıza uygun uygulama mağazasını seçip ücretsiz indirin.
     </p>
 
-    <!-- AUTO REDIRECT STATUS CARD -->
+    <!-- STATUS CARD -->
     <div id="redirect-status-box" class="glass-card-popular p-6 rounded-2xl max-w-lg mx-auto flex flex-col items-center gap-4 text-center">
-      <div class="w-12 h-12 rounded-full flex items-center justify-center pulse-ring" style="background:rgba(246,190,57,0.2);color:#f6be39">
-        <span class="material-symbols-outlined text-2xl animate-spin" id="redirect-spinner">progress_activity</span>
+      <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(246,190,57,0.2);color:#f6be39">
+        <span class="material-symbols-outlined text-2xl" id="redirect-spinner">open_in_new</span>
       </div>
       <div>
         <div id="redirect-title" style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#e3e3de">
-          Mağazaya Yönlendiriliyorsunuz...
+          Uygulama Mağazasına Yönlendiriliyorsunuz...
         </div>
         <p id="redirect-subtitle" class="text-sm mt-1" style="color:#d3c5ae">
-          3 saniye içinde cihazınıza uygun uygulama mağazasına aktarılacaksınız.
+          Yönlendirme başlamadıysa aşağıdaki butonlardan cihazınıza uygun mağazayı seçebilirsiniz.
         </p>
       </div>
 
       <div class="flex flex-wrap gap-3 justify-center w-full pt-2">
-        <a id="direct-redirect-btn" href="#" class="cta-primary px-8 py-3.5 rounded-xl font-bold font-label-caps text-xs tracking-wider flex items-center gap-2" style="color:#0a1a14;text-decoration:none">
+        <a id="direct-redirect-btn" href="https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi" class="cta-primary px-8 py-3.5 rounded-xl font-bold font-label-caps text-xs tracking-wider flex items-center gap-2" style="color:#0a1a14;text-decoration:none">
           <span>HEMEN İNDİR</span>
           <span class="material-symbols-outlined text-sm">open_in_new</span>
         </a>
-        <button id="cancel-redirect-btn" onclick="cancelRedirect()" class="px-5 py-3.5 rounded-xl font-bold font-label-caps text-xs tracking-wider" style="border:1px solid rgba(212,160,23,0.3);color:#d3c5ae;background:rgba(10,26,20,0.5)">
-          YÖNLENDİRMEYİ DURDUR
-        </button>
       </div>
     </div>
   </div>
@@ -151,7 +166,7 @@ footer a{transition:color .2s ease}
   <!-- QR CODE / MOBILE SCAN HELPER -->
   <div class="max-w-4xl mx-auto glass-card p-8 rounded-2xl reveal text-center flex flex-col md:flex-row items-center justify-between gap-6">
     <div class="text-left space-y-2 max-w-md">
-      <div class="flex items-center gap-2" style="color:#f6be39 font-weight:700">
+      <div class="flex items-center gap-2" style="color:#f6be39;font-weight:700">
         <span class="material-symbols-outlined">qr_code_scanner</span>
         <span class="text-xs uppercase tracking-widest font-label-caps">Masaüstünde misiniz?</span>
       </div>
@@ -159,25 +174,20 @@ footer a{transition:color .2s ease}
       <p class="text-sm" style="color:#d3c5ae">Kameranızı tutarak bu sayfayı telefonunuzda açabilir, cihazınıza özel mağazaya saniyeler içinde ulaşabilirsiniz.</p>
     </div>
     <div class="p-4 rounded-xl flex flex-col items-center gap-2" style="background:#ffffff;border:2px solid #f6be39">
-      <!-- QR SVG rendering direct link to ayetkilidi.app/indir.html -->
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="120" height="120" fill="white"/>
-        <!-- Top Left Finder Pattern -->
         <rect x="10" y="10" width="35" height="35" fill="#0A1A14"/>
         <rect x="15" y="15" width="25" height="25" fill="white"/>
         <rect x="20" y="20" width="15" height="15" fill="#0A1A14"/>
 
-        <!-- Top Right Finder Pattern -->
         <rect x="75" y="10" width="35" height="35" fill="#0A1A14"/>
         <rect x="80" y="15" width="25" height="25" fill="white"/>
         <rect x="85" y="20" width="15" height="15" fill="#0A1A14"/>
 
-        <!-- Bottom Left Finder Pattern -->
         <rect x="10" y="75" width="35" height="35" fill="#0A1A14"/>
         <rect x="15" y="80" width="25" height="25" fill="white"/>
         <rect x="20" y="85" width="15" height="15" fill="#0A1A14"/>
 
-        <!-- Mock QR Data Dots -->
         <rect x="50" y="15" width="10" height="10" fill="#0A1A14"/>
         <rect x="60" y="25" width="10" height="10" fill="#0A1A14"/>
         <rect x="50" y="35" width="10" height="10" fill="#0A1A14"/>
@@ -252,9 +262,6 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const APP_STORE_URL = "https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr";
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi";
 
-let timerId = null;
-let countdownSeconds = 2;
-
 function detectOS() {
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
   const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -264,74 +271,28 @@ function detectOS() {
   return 'other';
 }
 
-function handleSmartRedirect() {
+function handleUI() {
   const os = detectOS();
-  const urlParams = new URLSearchParams(window.location.search);
-  const noAuto = urlParams.get('noauto') === '1' || urlParams.get('redirect') === 'false';
-
   const detectedText = document.getElementById('detected-device-text');
   const directBtn = document.getElementById('direct-redirect-btn');
   const cardAppStore = document.getElementById('card-appstore');
   const cardPlayStore = document.getElementById('card-playstore');
 
-  let targetUrl = PLAY_STORE_URL;
-  let targetStoreName = "Google Play Store";
-
   if (os === 'ios') {
-    targetUrl = APP_STORE_URL;
-    targetStoreName = "Apple App Store";
+    directBtn.href = APP_STORE_URL;
     detectedText.textContent = "iOS Cihazı Tespiti Yapıldı (iPhone / iPad)";
     cardAppStore.classList.add('glass-card-popular');
   } else if (os === 'android') {
-    targetUrl = PLAY_STORE_URL;
-    targetStoreName = "Google Play Store";
+    directBtn.href = PLAY_STORE_URL;
     detectedText.textContent = "Android Cihazı Tespiti Yapıldı";
     cardPlayStore.classList.add('glass-card-popular');
   } else {
     detectedText.textContent = "Masaüstü / Diğer Cihaz Tespiti";
-    targetUrl = PLAY_STORE_URL; // Default fallback link
+    directBtn.href = PLAY_STORE_URL;
   }
-
-  directBtn.href = targetUrl;
-
-  if (noAuto) {
-    cancelRedirect();
-    return;
-  }
-
-  // Countdown and Auto-Redirect
-  let currentCountdown = countdownSeconds;
-  const subtitleEl = document.getElementById('redirect-subtitle');
-  
-  const tick = () => {
-    subtitleEl.textContent = `${currentCountdown} saniye içinde ${targetStoreName} mağazasına aktarılıyorsunuz...`;
-    if (currentCountdown <= 0) {
-      window.location.href = targetUrl;
-    } else {
-      currentCountdown--;
-      timerId = setTimeout(tick, 1000);
-    }
-  };
-
-  tick();
 }
 
-function cancelRedirect() {
-  if (timerId) clearTimeout(timerId);
-  const statusBox = document.getElementById('redirect-status-box');
-  const spinner = document.getElementById('redirect-spinner');
-  const titleEl = document.getElementById('redirect-title');
-  const subtitleEl = document.getElementById('redirect-subtitle');
-  const cancelBtn = document.getElementById('cancel-redirect-btn');
-
-  spinner.textContent = "touch_app";
-  spinner.classList.remove('animate-spin');
-  titleEl.textContent = "Mağaza Seçiminizi Yapın";
-  subtitleEl.textContent = "Aşağıdaki butonlardan cihazınıza uygun uygulama mağazasına geçebilirsiniz.";
-  cancelBtn.style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', handleSmartRedirect);
+document.addEventListener('DOMContentLoaded', handleUI);
 </script>
 </body>
 </html>
