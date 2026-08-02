@@ -261,8 +261,16 @@ function detectEnvironment() {
   const ua = navigator.userAgent || navigator.vendor || window.opera || '';
   const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const isAndroid = /android/i.test(ua);
+  
   const isInstagram = /Instagram/i.test(ua);
-  const isInApp = isInstagram || /FBAN|FBAV|TikTok|musical_ly|Snapchat|Twitter|LinkedIn|MicroMessenger/i.test(ua);
+  const isFB = /FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(ua);
+  const isTikTok = /TikTok|musical_ly|Bytedance/i.test(ua);
+  const isSnapchat = /Snapchat/i.test(ua);
+  const isTwitter = /Twitter/i.test(ua);
+  const isLineOrWA = /Line|WhatsApp|MicroMessenger/i.test(ua);
+  
+  const isInApp = isInstagram || isFB || isTikTok || isSnapchat || isTwitter || isLineOrWA;
+  
   return { isIOS, isAndroid, isInstagram, isInApp, ua };
 }
 
@@ -298,26 +306,27 @@ function handleUIAndRedirect() {
     if (redirectSubtitle) redirectSubtitle.textContent = "Aşağıdaki butonlardan cihazınıza uygun mağazayı seçip indirebilirsiniz.";
   }
 
-  if (env.isInApp && inAppNotice) {
-    inAppNotice.classList.remove('hidden');
+  // Handle Instagram & In-App Browsers
+  if (env.isInApp) {
+    if (inAppNotice) inAppNotice.classList.remove('hidden');
+    if (redirectTitle) redirectTitle.textContent = "İndirmek İçin Aşağıdaki Butona Dokunun";
     if (redirectSubtitle) {
-      redirectSubtitle.textContent = "Instagram içi tarayıcı kullanıyorsunuz. Otomatik geçiş yapamazsa 'HEMEN İNDİR' butonuna dokunun.";
+      redirectSubtitle.textContent = "Instagram içi tarayıcı kullanıyorsunuz. Uygulamayı indirmek için lütfen 'HEMEN İNDİR' butonuna dokunun.";
     }
+    // CRITICAL: DO NOT execute automatic location.href in Instagram!
+    // Automatic redirects to external app store links in Instagram WebViews cause blank white screens.
+    return;
   }
 
-  // Safe auto-redirect AFTER DOM load (300ms delay to guarantee page paint)
+  // Regular browsers (Safari, Chrome) auto-redirect after DOM paint
   if (!noAuto && (env.isIOS || env.isAndroid)) {
     setTimeout(function() {
       try {
-        if (env.isAndroid && env.isInApp) {
-          window.location.href = ANDROID_INTENT_URL;
-        } else {
-          window.location.href = targetUrl;
-        }
+        window.location.href = targetUrl;
       } catch (err) {
         console.log("Safe redirect fallback triggered:", err);
       }
-    }, 300);
+    }, 400);
   }
 }
 
