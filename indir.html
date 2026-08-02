@@ -322,14 +322,9 @@ if(window.IntersectionObserver){
   document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')});
 }
 
-// STORE URLS
-// Normal browser URLs
+// STORE URLS (standard https only - these work in ALL browsers including Instagram WebView)
 var APP_STORE_URL = "https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr";
 var PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi";
-// Native deep-link schemes that bypass Instagram WebView restrictions
-var APP_STORE_NATIVE = "itms-apps://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr";
-var PLAY_STORE_NATIVE = "market://details?id=me.aydin.ayetkilidi";
-var PLAY_STORE_INTENT = "intent://details?id=me.aydin.ayetkilidi#Intent;scheme=market;package=com.android.vending;end;";
 
 function detectEnvironment() {
   var ua = navigator.userAgent || navigator.vendor || '';
@@ -337,14 +332,6 @@ function detectEnvironment() {
   var isAndroid = /android/i.test(ua);
   var isInApp = /Instagram|FBAN|FBAV|FB_IAB|FB4A|FBIOS|TikTok|musical_ly|Bytedance|Snapchat|Twitter|WhatsApp|Line|MicroMessenger/i.test(ua);
   return { isIOS: isIOS, isAndroid: isAndroid, isInApp: isInApp };
-}
-
-// Helper: update all matching store link buttons on the page
-function updateStoreLinks(selector, newHref) {
-  var links = document.querySelectorAll(selector);
-  for (var i = 0; i < links.length; i++) {
-    links[i].href = newHref;
-  }
 }
 
 function handlePage() {
@@ -356,21 +343,16 @@ function handlePage() {
   var inAppNotice = document.getElementById('inapp-notice');
   var redirectTitle = document.getElementById('redirect-title');
   var redirectSubtitle = document.getElementById('redirect-subtitle');
-  var appStoreBtn = document.getElementById('btn-appstore');
-  var playStoreBtn = document.getElementById('btn-playstore');
 
   var params = new URLSearchParams(window.location.search);
   var noAuto = params.get('noauto') === '1' || params.get('redirect') === 'false';
 
-  var targetUrl = PLAY_STORE_URL;
-
+  // Set correct store URL for detected platform
   if (env.isIOS) {
-    targetUrl = APP_STORE_URL;
     directBtn.href = APP_STORE_URL;
     detectedText.textContent = env.isInApp ? "iOS (Instagram / Sosyal Medya)" : "iOS Cihazı Tespiti (iPhone / iPad)";
     cardAppStore.classList.add('glass-card-popular');
   } else if (env.isAndroid) {
-    targetUrl = PLAY_STORE_URL;
     directBtn.href = PLAY_STORE_URL;
     detectedText.textContent = env.isInApp ? "Android (Instagram / Sosyal Medya)" : "Android Cihazı Tespiti";
     cardPlayStore.classList.add('glass-card-popular');
@@ -381,70 +363,22 @@ function handlePage() {
     if (redirectSubtitle) redirectSubtitle.textContent = "Aşağıdaki butonlardan cihazınıza uygun mağazayı seçip indirebilirsiniz.";
   }
 
-  // IN-APP BROWSER (Instagram, TikTok, etc.)
+  // IN-APP BROWSER: Just show the notice. 
+  // DO NOT add any JavaScript click handlers - let <a> tags work naturally!
   if (env.isInApp) {
     if (inAppNotice) inAppNotice.style.display = 'block';
     if (redirectTitle) redirectTitle.textContent = "İndirmek İçin Butona Dokunun";
-    if (redirectSubtitle) redirectSubtitle.textContent = "Uygulama içi tarayıcıdasınız. Butona dokunarak mağazaya gidin.";
-
-    // Switch ALL links to native deep-link schemes
-    if (env.isIOS) {
-      directBtn.href = APP_STORE_NATIVE;
-      if (appStoreBtn) appStoreBtn.href = APP_STORE_NATIVE;
-    } else if (env.isAndroid) {
-      directBtn.href = PLAY_STORE_NATIVE;
-      if (playStoreBtn) playStoreBtn.href = PLAY_STORE_NATIVE;
-    }
-
-    // Add click handlers with fallback chain for stubborn WebViews
-    directBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      openStore(env);
-    });
-    if (appStoreBtn) {
-      appStoreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openStore({ isIOS: true, isAndroid: false, isInApp: true });
-      });
-    }
-    if (playStoreBtn) {
-      playStoreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openStore({ isIOS: false, isAndroid: true, isInApp: true });
-      });
-    }
-
-    return; // Do NOT auto-redirect in in-app browsers
+    if (redirectSubtitle) redirectSubtitle.textContent = "Uygulama içi tarayıcıdasınız. Aşağıdaki butona dokunarak mağazaya gidin.";
+    // No auto-redirect, no click interception. Just let the user tap the link.
+    return;
   }
 
-  // REGULAR BROWSER: Auto-redirect after page is visible
+  // REGULAR BROWSER: Auto-redirect
   if (!noAuto && (env.isIOS || env.isAndroid)) {
+    var target = env.isIOS ? APP_STORE_URL : PLAY_STORE_URL;
     setTimeout(function() {
-      try { window.location.href = targetUrl; } catch(e) {}
+      try { window.location.href = target; } catch(e) {}
     }, 500);
-  }
-}
-
-// Aggressive store opener with fallback chain
-function openStore(env) {
-  if (env.isIOS) {
-    // Try 1: Native itms-apps scheme (opens App Store app directly)
-    window.location.href = APP_STORE_NATIVE;
-    // Try 2: If that fails after 1.5s, try https URL
-    setTimeout(function() {
-      window.location.href = APP_STORE_URL;
-    }, 1500);
-  } else if (env.isAndroid) {
-    // Try 1: market:// scheme (opens Play Store app directly)
-    window.location.href = PLAY_STORE_NATIVE;
-    // Try 2: If that fails after 1s, try intent:// scheme
-    setTimeout(function() {
-      window.location.href = PLAY_STORE_INTENT;
-    }, 1000);
-    // Try 3: If intent also fails after 2.5s, fall back to https URL
-    setTimeout(function() {
-      window.location.href = PLAY_STORE_URL;
-    }, 2500);
   }
 }
 
