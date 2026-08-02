@@ -2,11 +2,73 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8"/>
-<meta http-equiv="refresh" content="0; url=indir.html"/>
-<script>window.location.href = "indir.html";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="refresh" content="1; url=indir.html"/>
 <title>Yönlendiriliyorsunuz... | Ayet Kilidi</title>
+<style>
+  body {
+    background-color: #0A1A14;
+    color: #e3e3de;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .card {
+    background: rgba(20, 43, 34, 0.8);
+    border: 1px solid rgba(246, 190, 57, 0.3);
+    border-radius: 16px;
+    padding: 32px 24px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  h1 {
+    font-size: 20px;
+    color: #f6be39;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 14px;
+    color: #d3c5ae;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .btn {
+    display: inline-block;
+    background: #f6be39;
+    color: #0a1a14;
+    font-weight: bold;
+    padding: 12px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+  }
+  .btn:active {
+    transform: scale(0.96);
+  }
+</style>
 </head>
-<body style="background:#0A1A14;color:#e3e3de;font-family:sans-serif;text-align:center;padding-top:20vh">
-<p>İndirme sayfasına yönlendiriliyorsunuz... <a href="indir.html" style="color:#f6be39">Tıklayın</a></p>
+<body>
+<div class="card">
+  <h1>Ayet Kilidi İndirme Sayfası</h1>
+  <p>İndirme sayfasına yönlendiriliyorsunuz... Otomatik geçiş yapılmazsa aşağıdaki butona tıklayın.</p>
+  <a href="indir.html" class="btn">İndirme Sayfasına Git</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    window.location.href = "indir.html";
+  }, 100);
+});
+</script>
 </body>
 </html>

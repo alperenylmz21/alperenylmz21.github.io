@@ -5,24 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="description" content="Ayet Kilidi - Uygulamayı Ücretsiz İndir. iOS App Store ve Android Google Play Store bağlantıları."/>
 <title>Uygulamayı İndir | Ayet Kilidi</title>
-<script>
-// INSTANT AUTO-REDIRECT FOR MOBILE DEVICES (ZERO DELAY)
-(function() {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  const isAndroid = /android/i.test(userAgent);
-  const urlParams = new URLSearchParams(window.location.search);
-  const noAuto = urlParams.get('noauto') === '1' || urlParams.get('redirect') === 'false';
 
-  if (!noAuto) {
-    if (isIOS) {
-      window.location.replace("https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr");
-    } else if (isAndroid) {
-      window.location.replace("https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi");
-    }
-  }
-})();
-</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -102,6 +85,17 @@ footer a{transition:color .2s ease}
     <p style="color:#d3c5ae;font-size:18px;line-height:1.6" class="max-w-xl mx-auto">
       Kutsal metinler, ayet ve sure okuma modları ile maneviyat cebinizde. Cihazınıza uygun uygulama mağazasını seçip ücretsiz indirin.
     </p>
+
+    <!-- IN-APP BROWSER NOTICE CARD (Shown if Instagram/TikTok/FB WebView is detected) -->
+    <div id="inapp-notice" class="hidden mb-6 p-5 rounded-2xl text-left text-sm max-w-lg mx-auto glass-card" style="border-color:rgba(246,190,57,0.4);background:rgba(246,190,57,0.1)">
+      <div class="flex items-start gap-3">
+        <span class="material-symbols-outlined shrink-0 text-2xl" style="color:#f6be39">info</span>
+        <div>
+          <strong style="color:#f6be39;font-size:15px" class="block mb-1">Uygulama İçi Tarayıcı Tespit Edildi (Instagram / Sosyal Medya)</strong>
+          <span style="color:#e3e3de">Uygulama mağazası otomatik açılmazsa aşağıdaki <strong style="color:#f6be39">HEMEN İNDİR</strong> butonuna dokunabilir veya sağ üstteki <strong>(•••)</strong> menüden <strong>"Safari'de Aç" / "Tarayıcıda Aç"</strong> seçeneğini tıklayabilirsiniz.</span>
+        </div>
+      </div>
+    </div>
 
     <!-- STATUS CARD -->
     <div id="redirect-status-box" class="glass-card-popular p-6 rounded-2xl max-w-lg mx-auto flex flex-col items-center gap-4 text-center">
@@ -258,41 +252,76 @@ tog.addEventListener('click',()=>{mm.classList.toggle('open');ic.textContent=mm.
 const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// STORE CONSTANTS
+// STORE CONSTANTS & SCHEMES
 const APP_STORE_URL = "https://apps.apple.com/tr/app/ayet-kilidi-kuran-hatim-takip/id6786811254?l=tr";
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=me.aydin.ayetkilidi";
+const ANDROID_INTENT_URL = "intent://play.google.com/store/apps/details?id=me.aydin.ayetkilidi#Intent;scheme=https;package=com.android.vending;end;";
 
-function detectOS() {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  const isAndroid = /android/i.test(userAgent);
-  if (isIOS) return 'ios';
-  if (isAndroid) return 'android';
-  return 'other';
+function detectEnvironment() {
+  const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /android/i.test(ua);
+  const isInstagram = /Instagram/i.test(ua);
+  const isInApp = isInstagram || /FBAN|FBAV|TikTok|musical_ly|Snapchat|Twitter|LinkedIn|MicroMessenger/i.test(ua);
+  return { isIOS, isAndroid, isInstagram, isInApp, ua };
 }
 
-function handleUI() {
-  const os = detectOS();
+function handleUIAndRedirect() {
+  const env = detectEnvironment();
   const detectedText = document.getElementById('detected-device-text');
   const directBtn = document.getElementById('direct-redirect-btn');
   const cardAppStore = document.getElementById('card-appstore');
   const cardPlayStore = document.getElementById('card-playstore');
+  const inAppNotice = document.getElementById('inapp-notice');
+  const redirectTitle = document.getElementById('redirect-title');
+  const redirectSubtitle = document.getElementById('redirect-subtitle');
 
-  if (os === 'ios') {
+  const urlParams = new URLSearchParams(window.location.search);
+  const noAuto = urlParams.get('noauto') === '1' || urlParams.get('redirect') === 'false';
+
+  let targetUrl = PLAY_STORE_URL;
+
+  if (env.isIOS) {
+    targetUrl = APP_STORE_URL;
     directBtn.href = APP_STORE_URL;
-    detectedText.textContent = "iOS Cihazı Tespiti Yapıldı (iPhone / iPad)";
+    detectedText.textContent = env.isInApp ? "iOS (Instagram / Sosyal Medya Tarayıcısı)" : "iOS Cihazı Tespiti Yapıldı (iPhone / iPad)";
     cardAppStore.classList.add('glass-card-popular');
-  } else if (os === 'android') {
-    directBtn.href = PLAY_STORE_URL;
-    detectedText.textContent = "Android Cihazı Tespiti Yapıldı";
+  } else if (env.isAndroid) {
+    targetUrl = PLAY_STORE_URL;
+    directBtn.href = env.isInApp ? ANDROID_INTENT_URL : PLAY_STORE_URL;
+    detectedText.textContent = env.isInApp ? "Android (Instagram / Sosyal Medya Tarayıcısı)" : "Android Cihazı Tespiti Yapıldı";
     cardPlayStore.classList.add('glass-card-popular');
   } else {
     detectedText.textContent = "Masaüstü / Diğer Cihaz Tespiti";
     directBtn.href = PLAY_STORE_URL;
+    if (redirectTitle) redirectTitle.textContent = "Ayet Kilidi İndirme Sayfası";
+    if (redirectSubtitle) redirectSubtitle.textContent = "Aşağıdaki butonlardan cihazınıza uygun mağazayı seçip indirebilirsiniz.";
+  }
+
+  if (env.isInApp && inAppNotice) {
+    inAppNotice.classList.remove('hidden');
+    if (redirectSubtitle) {
+      redirectSubtitle.textContent = "Instagram içi tarayıcı kullanıyorsunuz. Otomatik geçiş yapamazsa 'HEMEN İNDİR' butonuna dokunun.";
+    }
+  }
+
+  // Safe auto-redirect AFTER DOM load (300ms delay to guarantee page paint)
+  if (!noAuto && (env.isIOS || env.isAndroid)) {
+    setTimeout(function() {
+      try {
+        if (env.isAndroid && env.isInApp) {
+          window.location.href = ANDROID_INTENT_URL;
+        } else {
+          window.location.href = targetUrl;
+        }
+      } catch (err) {
+        console.log("Safe redirect fallback triggered:", err);
+      }
+    }, 300);
   }
 }
 
-document.addEventListener('DOMContentLoaded', handleUI);
+document.addEventListener('DOMContentLoaded', handleUIAndRedirect);
 </script>
 </body>
 </html>
